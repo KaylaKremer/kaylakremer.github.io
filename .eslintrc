@@ -12,21 +12,44 @@
         "plugin:prettier/recommended"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, {"extensions": [".js"]}],
-        "react/require-default-props": [0],
-        "react/prop-types": [2, {"skipUndeclared": true}],
-        "react/jsx-indent": [2, 2],
-        "comma-dangle": ["error", "never"],
-        "prettier/prettier": ["error", { 
-            "singleQuote": true,
-            "tabWidth": 2,
-            "semi": true,
-            "jsxBracketSameLine": false,
-            "arrowParens": "avoid",
-            "bracketSpacing": true,
-            "trailingComma": "es5",
-            "endOfLine": "auto"
-        }]
+        "import/prefer-default-export": "off",
+        "react/jsx-filename-extension": [
+            "warn",
+            {
+                "extensions": [
+                    ".js"
+                ]
+            }
+        ],
+        "react/require-default-props": "off",
+        "react/prop-types": [
+            "error",
+            {
+                "skipUndeclared": true
+            }
+        ],
+        "react/jsx-indent": [
+            "error",
+            2
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "tabWidth": 2,
+                "semi": true,
+                "jsxBracketSameLine": false,
+                "arrowParens": "avoid",
+                "bracketSpacing": true,
+                "trailingComma": "none",
+                "endOfLine": "auto",
+                "proseWrap": "always"
+            }
+        ]
     },
     "parser": "babel-eslint",
     "parserOptions": {

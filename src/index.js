@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
-import './index.css';
+import contactReducer from './store/reducers/contact';
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+
+const reducer = combineReducers({
+  contact: contactReducer
+});
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 const app = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
