@@ -1,5 +1,5 @@
 {
-  "short_name": "Portfolio - Kayla Kremer",
+  "short_name": "Portfolio",
   "name": "Portfolio of Kayla Kremer",
   "icons": [
     {
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#D680FF",
+  "background_color": "#80B1FF"
 }
