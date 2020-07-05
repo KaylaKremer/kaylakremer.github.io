@@ -62,7 +62,7 @@
     "lint": "eslint .",
     "lint-fix": "eslint src/**/*.js --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
