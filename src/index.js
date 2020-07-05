@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import App from './App';
-import contactReducer from './store/reducers/contact';
-import './index.css';
+import App from 'App';
+import contactReducer from 'store/reducers/contact';
+import styles from './index.module.scss';
 
 const reducer = combineReducers({
   contact: contactReducer
