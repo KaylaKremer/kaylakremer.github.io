@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Layout from 'components/Layout/Layout';
-import About from 'pages/About';
-import Projects from 'pages/Projects';
-import Contact from 'pages/Contact';
-import Home from 'pages/Home';
+import About from 'containers/About';
+import Projects from 'containers/Projects';
+import Contact from 'containers/Contact';
+import Home from 'containers/Home';
 import './app.scss';
 
 const App = () => {
