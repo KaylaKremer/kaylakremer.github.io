@@ -7,20 +7,20 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import App from 'App';
 import contactReducer from 'store/reducers/contact';
-import styles from './index.module.scss';
+import 'normalize-scss';
 
 const reducer = combineReducers({
-  contact: contactReducer
+    contact: contactReducer
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 const app = (
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
