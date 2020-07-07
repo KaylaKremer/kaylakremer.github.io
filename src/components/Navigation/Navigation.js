@@ -1,6 +1,6 @@
 import React from 'react';
 import NavList from 'components/Navigation/NavList/NavList';
-import './navigation.module.scss';
+import styles from './navigation.module.scss';
 
 const list = [
     {
@@ -26,7 +26,7 @@ const list = [
 ];
 
 const Navigation = props => (
-    <nav className="navigation">
+    <nav className={styles.navigation}>
         <NavList list={list} />
     </nav>
 );

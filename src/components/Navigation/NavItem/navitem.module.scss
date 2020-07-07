@@ -2,8 +2,12 @@
 
 .navitem {
     &::after {
-        content: "/"
+        content: " / "
     }
+    &:last-child::after {
+        content: "";
+    }
+    white-space: pre;
     color: $pink;
 }
 
