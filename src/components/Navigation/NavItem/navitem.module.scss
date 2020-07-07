@@ -1,0 +1,14 @@
+@import 'app';
+
+.navitem {
+    &::after {
+        content: "/"
+    }
+    color: $pink;
+}
+
+.active {
+    text-decoration: underline;
+    text-underline-position: below;
+    color: $blue;
+}
