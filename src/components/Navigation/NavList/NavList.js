@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavItem from 'components/Navigation/NavItem/NavItem';
-import styles from './navlist.module.scss';
+import styles from './nav-list.module.scss';
 
 const createNavItems = list =>
     list.map((item, index) => (
@@ -14,7 +14,7 @@ const createNavItems = list =>
     ));
 
 const NavList = ({ list }) => (
-    <ul className={styles.navlist}>{createNavItems(list)}</ul>
+    <ul className={styles['nav-list']}>{createNavItems(list)}</ul>
 );
 
 NavList.propTypes = {

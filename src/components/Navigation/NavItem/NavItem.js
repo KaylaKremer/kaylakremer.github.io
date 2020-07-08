@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './navitem.module.scss';
+import styles from './nav-item.module.scss';
 
 const NavItem = ({ link, exact, content }) => (
-    <li className={styles.navitem}>
+    <li className={styles['nav-item']}>
         <NavLink to={link} exact={exact} activeClassName={styles.active}>
             {content}
         </NavLink>

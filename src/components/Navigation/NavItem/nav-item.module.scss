@@ -1,6 +1,6 @@
 @import 'app';
 
-.navitem {
+.nav-item {
     &::after {
         content: " / "
     }

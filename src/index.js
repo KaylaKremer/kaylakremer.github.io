@@ -5,9 +5,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import App from 'App';
 import contactReducer from 'store/reducers/contact';
 import 'normalize-scss';
+
+library.add(fab, faCheckSquare, faCoffee);
 
 const reducer = combineReducers({
     contact: contactReducer
