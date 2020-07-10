@@ -1,20 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Modal from 'components/Modal/Modal';
+import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 
-const Contact = ({ loading }) => {
+const Contact = ({ modal, hideModal, showModal }) => {
     return (
-        <div className="home">
+        <div className="contact">
             <h1>Contact</h1>
-            {loading ? 'loading' : 'not loading'}
+            {modal && <Modal />}
+            <button onClick={showModal}>Open Modal</button>
         </div>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        loading: state.contact.loading
+        modal: state.contact.modal
     };
 };
 
-export default connect(mapStateToProps, null)(Contact);
+const mapDispatchToProps = {
+    hideModal: actions.hideModal,
+    showModal: actions.showModal
+};
+
+Contact.propTypes = {
+    modal: PropTypes.bool,
+    hideModal: PropTypes.func,
+    showModal: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);
