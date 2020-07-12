@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 import Button from 'components/Button/Button';
+import ContactForm from 'components/ContactForm/ContactForm';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,11 @@ const Contact = ({ modal, showModal }) => {
     return (
         <div className="contact">
             <h1>Contact</h1>
-            {modal && <Modal />}
+            {modal && (
+                <Modal>
+                    <ContactForm />
+                </Modal>
+            )}
             <Button type="button" onClick={showModal}>
                 Open Modal
             </Button>

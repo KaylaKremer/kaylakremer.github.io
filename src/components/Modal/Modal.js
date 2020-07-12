@@ -16,6 +16,7 @@ const Modal = ({ hideModal, children }) => {
                     type="button"
                     className={styles['modal-close-button']}
                     onClick={hideModal}
+                    ariaLabel="close"
                 >
                     <Icon icon="window-close" size="2x" />
                 </Button>

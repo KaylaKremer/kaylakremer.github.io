@@ -1,22 +1,24 @@
 import * as actionTypes from './actionTypes';
 
-export const emailSuccess = () => ({
-    type: actionTypes.EMAIL_SUCCESS
+export const formSuccess = success => ({
+    type: actionTypes.FORM_SUCCESS,
+    success
 });
 
-export const emailFail = error => ({
-    type: actionTypes.EMAIL_FAIL,
+export const formFail = error => ({
+    type: actionTypes.FORM_FAIL,
     error
 });
 
-export const emailStart = () => ({
-    type: actionTypes.EMAIL_START
+export const formStart = () => ({
+    type: actionTypes.FORM_START
 });
 
-export const emailSend = formData => {
+export const sendForm = formData => {
     return dispatch => {
-        dispatch(emailStart());
-        // Set up POST request for sending email for contact form
+        console.log('send form');
+        dispatch(formStart());
+        // Set up POST request for sending form for contact form
     };
 };
 

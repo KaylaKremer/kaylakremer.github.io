@@ -2,26 +2,37 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateState } from '../../utils/utils';
 
 const initialState = {
+    modal: false,
     loading: false,
-    modal: false
+    error: false,
+    success: false
 };
 
-const emailStart = (state, action) => {
+const formStart = (state, action) => {
     return updateState(state, { loading: true });
 };
 
-const emailFail = (state, action) => {
-    return updateState(state, { loading: false });
+const formFail = (state, action) => {
+    return updateState(state, {
+        loading: false,
+        error: action.error
+    });
 };
 
-const emailSuccess = (state, action) => {
+const formSuccess = (state, action) => {
     return updateState(state, {
-        loading: false
+        loading: false,
+        success: action.success
     });
 };
 
 const hideModal = (state, action) => {
-    return updateState(state, { modal: false });
+    return updateState(state, {
+        modal: false,
+        loading: false,
+        error: false,
+        success: false
+    });
 };
 
 const showModal = (state, action) => {
@@ -30,12 +41,12 @@ const showModal = (state, action) => {
 
 const contactReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.EMAIL_START:
-            return emailStart(state, action);
-        case actionTypes.EMAIL_FAIL:
-            return emailFail(state, action);
-        case actionTypes.EMAIL_SUCCESS:
-            return emailSuccess(state, action);
+        case actionTypes.FORM_START:
+            return formStart(state, action);
+        case actionTypes.FORM_FAIL:
+            return formFail(state, action);
+        case actionTypes.FORM_SUCCESS:
+            return formSuccess(state, action);
         case actionTypes.HIDE_MODAL:
             return hideModal(state, action);
         case actionTypes.SHOW_MODAL:

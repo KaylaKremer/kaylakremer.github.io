@@ -1,8 +1,8 @@
 export {
-    emailSuccess,
-    emailFail,
-    emailStart,
-    emailSend,
+    sendForm,
+    formStart,
+    formFail,
+    formSuccess,
     hideModal,
     showModal
 } from './contact';
