@@ -25,6 +25,7 @@
         ],
         "eol-last": "off",
         "import/prefer-default-export": "off",
+        "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-filename-extension": [
             "warn",
             {
@@ -33,6 +34,7 @@
                 ]
             }
         ],
+        "react/jsx-props-no-spreading" : "off",
         "react/button-has-type": "off",
         "react/require-default-props": "off",
         "react/prop-types": [

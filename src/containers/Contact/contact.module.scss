@@ -1,0 +1,9 @@
+.contact {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        flex: 1 0 100%;
+    }
+}

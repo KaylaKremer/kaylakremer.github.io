@@ -1,1 +1,8 @@
-export { emailSuccess, emailFail, emailStart, emailSend } from './contact';
+export {
+    sendForm,
+    formStart,
+    formFail,
+    formSuccess,
+    hideModal,
+    showModal
+} from './contact';

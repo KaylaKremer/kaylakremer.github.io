@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './icon.module.scss';
 
 const Icon = ({ icon, ...options }) => {
-    return <FontAwesomeIcon className={styles.icon} icon={icon} />;
+    return <FontAwesomeIcon className={styles.icon} icon={icon} {...options} />;
 };
 
 Icon.propTypes = {
