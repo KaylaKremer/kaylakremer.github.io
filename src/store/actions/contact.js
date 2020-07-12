@@ -1,3 +1,4 @@
+import emailjs from 'emailjs-com';
 import * as actionTypes from './actionTypes';
 
 export const formSuccess = success => ({
@@ -16,7 +17,6 @@ export const formStart = () => ({
 
 export const sendForm = formData => {
     return dispatch => {
-        console.log('send form');
         dispatch(formStart());
         // Set up POST request for sending form for contact form
     };
