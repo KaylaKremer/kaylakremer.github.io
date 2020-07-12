@@ -5,10 +5,11 @@ import Button from 'components/Button/Button';
 import ContactForm from 'components/ContactForm/ContactForm';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
+import styles from './contact.module.scss';
 
 const Contact = ({ modal, showModal }) => {
     return (
-        <div className="contact">
+        <div className={styles.contact}>
             <h1>Contact</h1>
             {modal && (
                 <Modal>

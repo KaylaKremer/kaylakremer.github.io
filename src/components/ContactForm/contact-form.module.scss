@@ -1,4 +1,30 @@
-.form {
+@import 'app';
+
+.contact-form {
     display: flex;
     flex-flow: column wrap;
+    align-items: center;
+    margin: 3rem;
+    .section {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-flow: column nowrap;
+        .label {
+            color: $pink;
+            margin-bottom: 0.25rem;
+        }
+        .field {
+            border: 3px solid $blue;
+            border-radius: 3px;
+            background-color: $black;
+            color: $white;
+            padding: 0.25rem;
+            width: 30rem;
+            height: auto;
+        }
+        .error { 
+            color: $pink;
+            margin-top: 0.25rem;
+        }
+    }
 }

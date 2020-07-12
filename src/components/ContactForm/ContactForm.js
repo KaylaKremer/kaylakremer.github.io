@@ -34,20 +34,63 @@ const ContactForm = ({ sendForm }) => {
             }}
         >
             <Form className={styles['contact-form']}>
-                <label htmlFor="name" aria-label="name">
-                    Name
-                </label>
-                <Field name="name" id="name" type="text" />
-                <ErrorMessage name="name" />
-                <label htmlFor="email">Email Address</label>
-                <Field name="email" id="email" type="email" />
-                <ErrorMessage name="email" />
-                <label htmlFor="subject">Subject</label>
-                <Field name="subject" id="subject" type="text" />
-                <ErrorMessage name="subject" />
-                <label htmlFor="message">Message</label>
-                <Field name="message" id="message" as="textarea" />
-                <ErrorMessage name="message" />
+                <div className={styles.section}>
+                    <label
+                        className={styles.label}
+                        htmlFor="name"
+                        aria-label="name"
+                    >
+                        Name
+                    </label>
+                    <Field
+                        className={styles.field}
+                        name="name"
+                        id="name"
+                        type="text"
+                    />
+                    <ErrorMessage className={styles.error} name="name" />
+                </div>
+
+                <div className={styles.section}>
+                    <label className={styles.label} htmlFor="email">
+                        Email Address
+                    </label>
+                    <Field
+                        className={styles.field}
+                        name="email"
+                        id="email"
+                        type="email"
+                    />
+                    <ErrorMessage className={styles.error} name="email" />
+                </div>
+
+                <div className={styles.section}>
+                    <label className={styles.label} htmlFor="subject">
+                        Subject
+                    </label>
+                    <Field
+                        className={styles.field}
+                        name="subject"
+                        id="subject"
+                        type="text"
+                    />
+                    <ErrorMessage className={styles.error} name="subject" />
+                </div>
+
+                <div className={styles.section}>
+                    <label className={styles.label} htmlFor="message">
+                        Message
+                    </label>
+                    <Field
+                        className={styles.field}
+                        name="message"
+                        id="message"
+                        as="textarea"
+                        rows="10"
+                    />
+                    <ErrorMessage className={styles.error} name="message" />
+                </div>
+
                 <Button type="submit">Submit</Button>
             </Form>
         </Formik>

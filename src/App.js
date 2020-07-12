@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
-import Home from 'containers/Home';
-import Projects from 'containers/Projects';
-import About from 'containers/About';
-import Contact from 'containers/Contact';
+import Home from 'containers/Home/Home';
+import Projects from 'containers/Projects/Projects';
+import About from 'containers/About/About';
+import Contact from 'containers/Contact/Contact';
 import Layout from 'components/Layout/Layout';
 import Header from 'components/Header/Header';
 import './app.scss';

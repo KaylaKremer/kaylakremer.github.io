@@ -14,13 +14,13 @@ const Modal = ({ hideModal, children }) => {
             <div className={styles.modal}>
                 <Button
                     type="button"
-                    className={styles['modal-close-button']}
+                    className={styles.close}
                     onClick={hideModal}
                     ariaLabel="close"
                 >
                     <Icon icon="window-close" size="2x" />
                 </Button>
-                <div className={styles['modal-content']}>{children}</div>
+                <div className={styles.content}>{children}</div>
             </div>
         </div>
     );
