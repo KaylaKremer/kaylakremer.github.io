@@ -72,7 +72,7 @@
         "lint-fix": "eslint src/**/*.js --fix",
         "predeploy": "npm run build",
         "deploy": "gh-pages -b master -d build",
-        "format": "prettier --config .prettierrc 'src/**/*.{js,jsx}' --write"
+        "format": "prettier --config .prettierrc 'src/**/*.{js,jsx,css,scss}' --write"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -83,7 +83,7 @@
             "prettier --config .prettierrc 'src/**/*.{js,jsx}' --write",
             "git add"
         ],
-        "*.+(json|css|md)": [
+        "*.+(json|css|scss|md)": [
             "prettier --config --write",
             "git add"
         ]
