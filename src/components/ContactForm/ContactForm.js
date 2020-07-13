@@ -25,13 +25,7 @@ const ContactForm = ({ sendForm }) => {
                     .max(5000, 'Must be 5000 characters or less')
                     .required('Required')
             })}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    sendForm();
-                    setSubmitting(false);
-                }, 400);
-            }}
+            onSubmit={values => sendForm(values)}
         >
             <Form className={styles['contact-form']}>
                 <div className={styles.section}>

@@ -8,7 +8,7 @@ const initialState = {
     success: false
 };
 
-const formStart = (state, action) => {
+const sendFormInit = (state, action) => {
     return updateState(state, { loading: true });
 };
 
@@ -41,8 +41,8 @@ const showModal = (state, action) => {
 
 const contactReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.FORM_START:
-            return formStart(state, action);
+        case actionTypes.SEND_FORM_INIT:
+            return sendFormInit(state, action);
         case actionTypes.FORM_FAIL:
             return formFail(state, action);
         case actionTypes.FORM_SUCCESS:
