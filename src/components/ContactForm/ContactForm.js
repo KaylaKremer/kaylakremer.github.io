@@ -42,7 +42,9 @@ const ContactForm = ({ sendForm }) => {
                         id="name"
                         type="text"
                     />
-                    <ErrorMessage className={styles.error} name="name" />
+                    <div className={styles.error}>
+                        <ErrorMessage name="name" />
+                    </div>
                 </div>
 
                 <div className={styles.section}>
@@ -55,7 +57,9 @@ const ContactForm = ({ sendForm }) => {
                         id="email"
                         type="email"
                     />
-                    <ErrorMessage className={styles.error} name="email" />
+                    <div className={styles.error}>
+                        <ErrorMessage name="email" />
+                    </div>
                 </div>
 
                 <div className={styles.section}>
@@ -68,7 +72,9 @@ const ContactForm = ({ sendForm }) => {
                         id="subject"
                         type="text"
                     />
-                    <ErrorMessage className={styles.error} name="subject" />
+                    <div className={styles.error}>
+                        <ErrorMessage name="subject" />
+                    </div>
                 </div>
 
                 <div className={styles.section}>
@@ -82,10 +88,14 @@ const ContactForm = ({ sendForm }) => {
                         as="textarea"
                         rows="10"
                     />
-                    <ErrorMessage className={styles.error} name="message" />
+                    <div className={styles.error}>
+                        <ErrorMessage name="message" />
+                    </div>
                 </div>
 
-                <Button type="submit">Submit</Button>
+                <Button className={styles.submit} type="submit">
+                    Submit
+                </Button>
             </Form>
         </Formik>
     );

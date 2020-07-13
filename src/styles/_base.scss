@@ -1,3 +1,8 @@
+@import './colors';
+@import './typography';
+@import './mixins';
+@import './functions';
+
 *,
 *::before,
 *::after {
@@ -7,13 +12,16 @@
     border: 0;
 }
 
-a {
-    text-decoration: none; 
-    color: inherit; 
-    cursor: pointer;
+html,
+button,
+input,
+textarea {
+    @include font-family('Josefin Sans');
+    font-size: 16px;
 }
 
-button {
+a {
+    text-decoration: none; 
     color: inherit; 
     cursor: pointer;
 }
