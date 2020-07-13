@@ -15,14 +15,14 @@ export const sendFormInit = () => ({
     type: actionTypes.SEND_FORM_INIT
 });
 
-export const sendForm = formData => {
+export const sendForm = form => {
     return dispatch => {
         dispatch(sendFormInit());
         const templateParams = {
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message
+            name: form.name,
+            email: form.email,
+            subject: form.subject,
+            message: form.message
         };
         emailjs
             .send(
