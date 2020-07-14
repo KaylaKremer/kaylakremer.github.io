@@ -1,6 +1,12 @@
-@import 'app';
+@import 'styles';
 
 .button {
-    color: $pink;
-    background-color: transparent;
+    color: $white;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    background-color: $pink;
+    margin: 1rem;
+    &:hover {
+        background-color: $blue;
+    }
 }

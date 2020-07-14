@@ -1,6 +1,6 @@
 export {
     sendForm,
-    formStart,
+    sendFormInit,
     formFail,
     formSuccess,
     hideModal,

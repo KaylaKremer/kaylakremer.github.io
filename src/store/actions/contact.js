@@ -1,24 +1,42 @@
+import emailjs from 'emailjs-com';
 import * as actionTypes from './actionTypes';
 
-export const formSuccess = success => ({
+export const formSuccess = () => ({
     type: actionTypes.FORM_SUCCESS,
-    success
+    success: 'Your email was sent 😄'
 });
 
-export const formFail = error => ({
+export const formFail = () => ({
     type: actionTypes.FORM_FAIL,
-    error
+    error: 'Your email failed to send 😢'
 });
 
-export const formStart = () => ({
-    type: actionTypes.FORM_START
+export const sendFormInit = () => ({
+    type: actionTypes.SEND_FORM_INIT
 });
 
-export const sendForm = formData => {
+export const sendForm = form => {
     return dispatch => {
-        console.log('send form');
-        dispatch(formStart());
-        // Set up POST request for sending form for contact form
+        dispatch(sendFormInit());
+        const templateParams = {
+            name: form.name,
+            email: form.email,
+            subject: form.subject,
+            message: form.message
+        };
+        emailjs
+            .send(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                templateParams,
+                process.env.REACT_APP_EMAILJS_USER_ID
+            )
+            .then(result => {
+                dispatch(formSuccess());
+            })
+            .catch(error => {
+                dispatch(formFail());
+            });
     };
 };
 
