@@ -16,7 +16,7 @@ html,
 button,
 input,
 textarea {
-    @include font-family('Josefin Sans');
+    @include font-family($poiret-one);
     font-size: 16px;
 }
 

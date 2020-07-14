@@ -4,11 +4,11 @@ import { updateState } from '../../utils/utils';
 const initialState = {
     modal: false,
     loading: false,
-    error: false,
-    success: false
+    error: null,
+    success: null
 };
 
-const sendFormInit = (state, action) => {
+const sendFormInit = state => {
     return updateState(state, { loading: true });
 };
 
@@ -26,31 +26,36 @@ const formSuccess = (state, action) => {
     });
 };
 
-const hideModal = (state, action) => {
+const hideModal = state => {
     return updateState(state, {
         modal: false,
         loading: false,
-        error: false,
-        success: false
+        error: null,
+        success: null
     });
 };
 
-const showModal = (state, action) => {
-    return updateState(state, { modal: true });
+const showModal = state => {
+    return updateState(state, {
+        modal: true,
+        loading: false,
+        error: null,
+        success: null
+    });
 };
 
 const contactReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SEND_FORM_INIT:
-            return sendFormInit(state, action);
+            return sendFormInit(state);
         case actionTypes.FORM_FAIL:
             return formFail(state, action);
         case actionTypes.FORM_SUCCESS:
             return formSuccess(state, action);
         case actionTypes.HIDE_MODAL:
-            return hideModal(state, action);
+            return hideModal(state);
         case actionTypes.SHOW_MODAL:
-            return showModal(state, action);
+            return showModal(state);
         default:
             return state;
     }

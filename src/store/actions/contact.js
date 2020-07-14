@@ -1,14 +1,14 @@
 import emailjs from 'emailjs-com';
 import * as actionTypes from './actionTypes';
 
-export const formSuccess = success => ({
+export const formSuccess = () => ({
     type: actionTypes.FORM_SUCCESS,
-    success
+    success: 'Your email was sent 😄'
 });
 
-export const formFail = error => ({
+export const formFail = () => ({
     type: actionTypes.FORM_FAIL,
-    error
+    error: 'Your email failed to send 😢'
 });
 
 export const sendFormInit = () => ({
@@ -32,10 +32,10 @@ export const sendForm = form => {
                 process.env.REACT_APP_EMAILJS_USER_ID
             )
             .then(result => {
-                dispatch(formSuccess(result));
+                dispatch(formSuccess());
             })
             .catch(error => {
-                dispatch(formFail(error));
+                dispatch(formFail());
             });
     };
 };

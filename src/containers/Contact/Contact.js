@@ -23,6 +23,9 @@ const Contact = ({ modal, loading, success, error, showModal }) => {
         modalContent = <ContactForm />;
     }
 
+    // For testing with just one component:
+    // modalContent = <Error />;
+
     return (
         <div className={styles.contact}>
             <h1>Contact</h1>
@@ -34,14 +37,12 @@ const Contact = ({ modal, loading, success, error, showModal }) => {
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        modal: state.contact.modal,
-        loading: state.contact.loading,
-        success: state.contact.success,
-        error: state.contact.error
-    };
-};
+const mapStateToProps = state => ({
+    modal: state.contact.modal,
+    loading: state.contact.loading,
+    success: state.contact.success,
+    error: state.contact.error
+});
 
 const mapDispatchToProps = {
     showModal: actions.showModal
