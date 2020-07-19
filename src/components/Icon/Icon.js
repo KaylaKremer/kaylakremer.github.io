@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import styles from './icon.module.scss';
 
-const Icon = ({ icon, link = null, ...options }) => {
+const Icon = ({ icon, link = null, title = null, ...options }) => {
     return (
         <>
             {link ? (
-                <a href={link}>
+                <a href={link} title={title} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={icon} {...options} />
                 </a>
             ) : (
@@ -19,7 +19,8 @@ const Icon = ({ icon, link = null, ...options }) => {
 
 Icon.propTypes = {
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    link: PropTypes.string
+    link: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default Icon;

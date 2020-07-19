@@ -19,6 +19,7 @@
         }
     },
     "rules": {
+        "no-useless-computed-key": "off",
         "comma-dangle": ["error", "never"],
         "eol-last": "off",
         "import/prefer-default-export": "off",
