@@ -6,10 +6,12 @@ import About from 'containers/About/About';
 import Contact from 'containers/Contact/Contact';
 import Layout from 'components/Layout/Layout';
 import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+import 'styles/index.scss';
 
 const App = () => {
     return (
-        <>
+        <div className="app">
             <Header />
             <Layout>
                 <Switch>
@@ -20,7 +22,8 @@ const App = () => {
                     <Redirect to="/" />
                 </Switch>
             </Layout>
-        </>
+            <Footer />
+        </div>
     );
 };
 

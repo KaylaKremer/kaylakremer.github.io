@@ -4,7 +4,7 @@ import styles from './about.module.scss';
 
 const About = props => {
     return (
-        <div className="about">
+        <div className={styles.about}>
             <h1>About</h1>
         </div>
     );
