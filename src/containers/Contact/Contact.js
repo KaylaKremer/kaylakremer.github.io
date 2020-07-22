@@ -6,6 +6,7 @@ import Loader from 'components/Loader/Loader';
 import Success from 'components/Success/Success';
 import Error from 'components/Error/Error';
 import ContactForm from 'components/ContactForm/ContactForm';
+import Cursor from 'components/Cursor/Cursor';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact.module.scss';
@@ -28,6 +29,7 @@ const Contact = ({ modal, loading, success, error, showModal }) => {
 
     return (
         <div className={styles.contact}>
+            <Cursor />
             <h1>Contact</h1>
             {modal && <Modal>{modalContent}</Modal>}
             <Button type="button" onClick={showModal}>
