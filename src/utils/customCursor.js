@@ -18,20 +18,20 @@ const getMousePosition = event => {
     return { x: posX, y: posY };
 };
 export default class CustomCursor {
-    constructor(cursor, innerDot, innerCircle) {
+    constructor(cursor, innerTriangle, innerTriangleDot) {
         this.DOM = { cursor };
-        this.DOM.dot = innerDot;
-        this.DOM.circle = innerCircle;
+        this.DOM.triangle = innerTriangle;
+        this.DOM.triangleDot = innerTriangleDot;
         this.bounds = {
-            dot: this.DOM.dot.getBoundingClientRect(),
-            circle: this.DOM.circle.getBoundingClientRect()
+            triangleDot: this.DOM.triangleDot.getBoundingClientRect(),
+            triangle: this.DOM.triangle.getBoundingClientRect()
         };
         this.scale = 1;
         this.opacity = 1;
         this.mousePosition = { x: 0, y: 0 };
         this.lastMousePosition = {
-            dot: { x: 0, y: 0 },
-            circle: { x: 0, y: 0 }
+            triangleDot: { x: 0, y: 0 },
+            triangle: { x: 0, y: 0 }
         };
         this.lastScale = 1;
 
@@ -40,46 +40,46 @@ export default class CustomCursor {
     }
 
     initEvents() {
-        window.addEventListener('mousemove', ev => {
-            this.mousePosition = getMousePosition(ev);
+        window.addEventListener('mousemove', e => {
+            this.mousePosition = getMousePosition(e);
             return this.mousePosition;
         });
     }
 
     render() {
-        this.lastMousePosition.dot.x = lerp(
-            this.lastMousePosition.dot.x,
-            this.mousePosition.x - this.bounds.dot.width / 2 - 5,
-            0.4
+        this.lastMousePosition.triangle.x = lerp(
+            this.lastMousePosition.triangle.x,
+            this.mousePosition.x - this.bounds.triangle.width / 2 - 5,
+            0.25
         );
-        this.lastMousePosition.dot.y = lerp(
-            this.lastMousePosition.dot.y,
-            this.mousePosition.y - this.bounds.dot.height / 2 - 8,
-            0.4
+        this.lastMousePosition.triangle.y = lerp(
+            this.lastMousePosition.triangle.y,
+            this.mousePosition.y - this.bounds.triangle.height / 2 - 8,
+            0.25
         );
-        this.lastMousePosition.circle.x = lerp(
-            this.lastMousePosition.circle.x,
-            this.mousePosition.x - this.bounds.circle.width,
+        this.lastMousePosition.triangleDot.x = lerp(
+            this.lastMousePosition.triangleDot.x,
+            this.mousePosition.x - this.bounds.triangleDot.width,
             0.5
         );
-        this.lastMousePosition.circle.y = lerp(
-            this.lastMousePosition.circle.y,
-            this.mousePosition.y - this.bounds.circle.height,
+        this.lastMousePosition.triangleDot.y = lerp(
+            this.lastMousePosition.triangleDot.y,
+            this.mousePosition.y - this.bounds.triangleDot.height,
             0.5
         );
         this.lastScale = lerp(this.lastScale, this.scale, 0.4);
-        this.DOM.dot.style.transform = `translateX(${this.lastMousePosition.dot.x}px) translateY(${this.lastMousePosition.dot.y}px)`;
-        this.DOM.circle.style.transform = `translateX(${this.lastMousePosition.circle.x}px) translateY(${this.lastMousePosition.circle.y}px) scale(${this.lastScale})`;
+        this.DOM.triangle.style.transform = `translateX(${this.lastMousePosition.triangle.x}px) translateY(${this.lastMousePosition.triangle.y}px)`;
+        this.DOM.triangleDot.style.transform = `translateX(${this.lastMousePosition.triangleDot.x}px) translateY(${this.lastMousePosition.triangleDot.y}px) scale(${this.lastScale})`;
         requestAnimationFrame(() => this.render());
     }
 
     enter() {
         this.scale = 1.5;
-        this.DOM.dot.style.display = 'none';
+        this.DOM.triangle.style.display = 'none';
     }
 
     leave() {
         this.scale = 1;
-        this.DOM.dot.style.display = '';
+        this.DOM.triangle.style.display = '';
     }
 }
