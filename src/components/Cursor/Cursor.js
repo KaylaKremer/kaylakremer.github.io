@@ -28,11 +28,11 @@ class Cursor extends Component {
         return (
             <div className={styles.cursor} ref={this.cursorRef}>
                 <div
-                    className={`${styles['cursor-inner']} ${styles['cursor-circle']}`}
+                    className={`${styles['cursor-inner']} ${styles['cursor-triangle']}`}
                     ref={this.circleRef}
                 />
                 <div
-                    className={`${styles['cursor-inner']} ${styles['cursor-dot']}`}
+                    className={`${styles['cursor-inner']} ${styles['cursor-triangle-dot']}`}
                     ref={this.dotRef}
                 />
             </div>

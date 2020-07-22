@@ -49,22 +49,22 @@ export default class CustomCursor {
     render() {
         this.lastMousePosition.dot.x = lerp(
             this.lastMousePosition.dot.x,
-            this.mousePosition.x - this.bounds.dot.width / 2,
+            this.mousePosition.x - this.bounds.dot.width / 2 - 5,
             0.4
         );
         this.lastMousePosition.dot.y = lerp(
             this.lastMousePosition.dot.y,
-            this.mousePosition.y - this.bounds.dot.height / 2,
+            this.mousePosition.y - this.bounds.dot.height / 2 - 8,
             0.4
         );
         this.lastMousePosition.circle.x = lerp(
             this.lastMousePosition.circle.x,
-            this.mousePosition.x - this.bounds.circle.width / 2,
+            this.mousePosition.x - this.bounds.circle.width,
             0.5
         );
         this.lastMousePosition.circle.y = lerp(
             this.lastMousePosition.circle.y,
-            this.mousePosition.y - this.bounds.circle.height / 2,
+            this.mousePosition.y - this.bounds.circle.height,
             0.5
         );
         this.lastScale = lerp(this.lastScale, this.scale, 0.4);
