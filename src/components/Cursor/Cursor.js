@@ -13,28 +13,29 @@ class Cursor extends Component {
     cursor = null;
 
     componentDidMount() {
-        this.cursor = new CustomCursor(
+        this.createCustomCursor();
+    }
+
+    createCustomCursor = () => {
+        return new CustomCursor(
             this.cursorRef.current,
             this.circleRef.current,
             this.dotRef.current
         );
-    }
+    };
 
     render() {
         return (
-            <>
-                <div className={styles.cursor} ref={this.cursorRef}>
-                    <div
-                        className={`${styles.cursor__inner} ${styles['cursor__inner--circle']}`}
-                        ref={this.circleRef}
-                    />
-                    <div
-                        className={`${styles.cursor__inner} ${styles['cursor__inner--dot']}`}
-                        ref={this.dotRef}
-                    />
-                </div>
-                {this.cursor ? this.cursor : null}
-            </>
+            <div className={styles.cursor} ref={this.cursorRef}>
+                <div
+                    className={`${styles['cursor-inner']} ${styles['cursor-circle']}`}
+                    ref={this.circleRef}
+                />
+                <div
+                    className={`${styles['cursor-inner']} ${styles['cursor-dot']}`}
+                    ref={this.dotRef}
+                />
+            </div>
         );
     }
 }

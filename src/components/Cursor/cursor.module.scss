@@ -4,7 +4,7 @@
     display: block;
 }
 
-.cursor__inner {
+.cursor-inner {
     z-index: 9999;
     pointer-events: none;
     position: absolute;
@@ -14,20 +14,14 @@
     border-radius: 50%;
 }
 
-.cursor__inner--dot {
+.cursor-dot {
     width: 8px;
     height: 8px;
     background: $black;
-    & a:hover {
-        background: red;
-    }
 }
 
-.cursor__inner--circle {
+.cursor-circle {
     width: 40px;
     height: 40px;
     border: 1px solid $black;
-    & a:hover {
-        background: red;
-    }
 }
