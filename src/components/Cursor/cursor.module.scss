@@ -1,0 +1,63 @@
+@import 'styles';
+
+.cursor {
+    display: block;
+
+    .cursor-inner {
+        z-index: 9999;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .cursor-triangle {
+        --thickness: 2px;
+        --color: #{$pink};
+        width: 30px;
+        height: 30px;
+        border: var(--thickness) solid transparent;
+        border-bottom-color: var(--color);
+        background: linear-gradient(
+                    to bottom left,
+                    transparent 49.5%,
+                    var(--color) 50% calc(50% + var(--thickness)),
+                    transparent calc(50% + var(--thickness) + 1px)
+                )
+                right,
+            linear-gradient(
+                    to bottom right,
+                    transparent 49.5%,
+                    var(--color) 50% calc(50% + var(--thickness)),
+                    transparent calc(50% + var(--thickness) + 1px)
+                )
+                left;
+        background-size: 50% 100%;
+        background-origin: border-box;
+        background-repeat: no-repeat;
+    }
+
+    .cursor-triangle-dot {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 5px 8.7px 5px;
+        border-color: transparent transparent $pink transparent;
+    }
+}
+
+// Styles for circle cursor
+
+// .cursor-dot {
+//     width: 8px;
+//     height: 8px;
+//     background: $black;
+//     border-radius: 50%;
+// }
+
+// .cursor-circle {
+//     width: 40px;
+//     height: 40px;
+//     border: 1px solid $black;
+//     border-radius: 50%;
+// }

@@ -17,6 +17,7 @@ textarea {
 
 html {
     height: 100%;
+    cursor: none;
 }
 
 .app {
@@ -31,10 +32,11 @@ html {
         'footer';
 }
 
-a {
+a,
+button {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
+    cursor: none;
 }
 
 ul,

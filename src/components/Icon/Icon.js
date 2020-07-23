@@ -7,7 +7,12 @@ const Icon = ({ icon, link = null, title = null, ...options }) => {
     return (
         <>
             {link ? (
-                <a href={link} title={title} target="_blank" rel="noreferrer">
+                <a
+                    href={link}
+                    title={title}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <FontAwesomeIcon icon={icon} {...options} />
                 </a>
             ) : (

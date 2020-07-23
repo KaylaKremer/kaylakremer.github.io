@@ -7,11 +7,13 @@ import Contact from 'containers/Contact/Contact';
 import Layout from 'components/Layout/Layout';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
+import Cursor from 'components/Cursor/Cursor';
 import 'styles/index.scss';
 
 const App = () => {
     return (
         <div className="app">
+            <Cursor />
             <Header />
             <Layout>
                 <Switch>
