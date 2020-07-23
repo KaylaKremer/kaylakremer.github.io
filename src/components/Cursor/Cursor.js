@@ -6,9 +6,9 @@ import styles from './cursor.module.scss';
 class Cursor extends Component {
     cursorRef = createRef();
 
-    triangleRef = createRef();
+    outerTriangleRef = createRef();
 
-    triangleDotRef = createRef();
+    innerTriangleRef = createRef();
 
     cursor = null;
 
@@ -19,8 +19,8 @@ class Cursor extends Component {
     createCustomCursor = () => {
         return new CustomCursor(
             this.cursorRef.current,
-            this.triangleRef.current,
-            this.triangleDotRef.current
+            this.outerTriangleRef.current,
+            this.innerTriangleRef.current
         );
     };
 
@@ -28,12 +28,12 @@ class Cursor extends Component {
         return (
             <div className={styles.cursor} ref={this.cursorRef}>
                 <div
-                    className={`${styles['cursor-inner']} ${styles['cursor-triangle']}`}
-                    ref={this.triangleRef}
+                    className={`${styles['cursor-triangle']} ${styles['cursor-outer-triangle']}`}
+                    ref={this.outerTriangleRef}
                 />
                 <div
-                    className={`${styles['cursor-inner']} ${styles['cursor-triangle-dot']}`}
-                    ref={this.triangleDotRef}
+                    className={`${styles['cursor-triangle']} ${styles['cursor-inner-triangle']}`}
+                    ref={this.innerTriangleRef}
                 />
             </div>
         );

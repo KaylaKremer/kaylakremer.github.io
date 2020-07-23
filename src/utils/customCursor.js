@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+
 const lerp = (a, b, n) => (1 - n) * a + n * b;
 const { body } = document;
 const getMousePosition = event => {
@@ -18,24 +20,25 @@ const getMousePosition = event => {
     return { x: posX, y: posY };
 };
 export default class CustomCursor {
-    constructor(cursor, innerTriangle, innerTriangleDot) {
+    constructor(cursor, outerTriangle, innerTriangle) {
         this.DOM = { cursor };
-        this.DOM.triangle = innerTriangle;
-        this.DOM.triangleDot = innerTriangleDot;
+        this.DOM.outerTriangle = outerTriangle;
+        this.DOM.innerTriangle = innerTriangle;
         this.bounds = {
-            triangleDot: this.DOM.triangleDot.getBoundingClientRect(),
-            triangle: this.DOM.triangle.getBoundingClientRect()
+            outerTriangle: this.DOM.outerTriangle.getBoundingClientRect(),
+            innerTriangle: this.DOM.innerTriangle.getBoundingClientRect()
         };
         this.scale = 1;
         this.opacity = 1;
         this.mousePosition = { x: 0, y: 0 };
         this.lastMousePosition = {
-            triangleDot: { x: 0, y: 0 },
-            triangle: { x: 0, y: 0 }
+            outerTriangle: { x: 0, y: 0 },
+            innerTriangle: { x: 0, y: 0 }
         };
         this.lastScale = 1;
 
         this.initEvents();
+        this.initHovers();
         requestAnimationFrame(() => this.render());
     }
 
@@ -46,40 +49,62 @@ export default class CustomCursor {
         });
     }
 
+    initHovers() {
+        const handleMouseEnter = e => {
+            const target = e.currentTarget;
+            const box = target.getBoundingClientRect();
+            this.outerCursorOriginals = {
+                width: this.bounds.outerTriangle.width,
+                height: this.bounds.outerTriangle.height
+            };
+            gsap.to(this.DOM.outerTriangle, {
+                width: this.DOM.innerTriangle.width,
+                height: this.DOM.innerTriangle.height,
+                border: '1px solid red',
+                duration: 0.2
+            });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(this.DOM.outerTriangle, {
+                width: this.outerCursorOriginals.width,
+                height: this.outerCursorOriginals.height,
+                border: 'none',
+                duration: 0.2
+            });
+        };
+
+        const clickableItems = document.querySelectorAll(['a', 'button']);
+        clickableItems.forEach(item => {
+            item.addEventListener('mouseenter', handleMouseEnter);
+            item.addEventListener('mouseleave', handleMouseLeave);
+        });
+    }
+
     render() {
-        this.lastMousePosition.triangle.x = lerp(
-            this.lastMousePosition.triangle.x,
-            this.mousePosition.x - this.bounds.triangle.width / 2 - 5,
+        this.lastMousePosition.outerTriangle.x = lerp(
+            this.lastMousePosition.outerTriangle.x,
+            this.mousePosition.x - this.bounds.outerTriangle.width / 2 - 5,
             0.25
         );
-        this.lastMousePosition.triangle.y = lerp(
-            this.lastMousePosition.triangle.y,
-            this.mousePosition.y - this.bounds.triangle.height / 2 - 8,
+        this.lastMousePosition.outerTriangle.y = lerp(
+            this.lastMousePosition.outerTriangle.y,
+            this.mousePosition.y - this.bounds.outerTriangle.height / 2 - 8,
             0.25
         );
-        this.lastMousePosition.triangleDot.x = lerp(
-            this.lastMousePosition.triangleDot.x,
-            this.mousePosition.x - this.bounds.triangleDot.width,
+        this.lastMousePosition.innerTriangle.x = lerp(
+            this.lastMousePosition.innerTriangle.x,
+            this.mousePosition.x - this.bounds.innerTriangle.width,
             0.5
         );
-        this.lastMousePosition.triangleDot.y = lerp(
-            this.lastMousePosition.triangleDot.y,
-            this.mousePosition.y - this.bounds.triangleDot.height,
+        this.lastMousePosition.innerTriangle.y = lerp(
+            this.lastMousePosition.innerTriangle.y,
+            this.mousePosition.y - this.bounds.innerTriangle.height,
             0.5
         );
         this.lastScale = lerp(this.lastScale, this.scale, 0.4);
-        this.DOM.triangle.style.transform = `translateX(${this.lastMousePosition.triangle.x}px) translateY(${this.lastMousePosition.triangle.y}px)`;
-        this.DOM.triangleDot.style.transform = `translateX(${this.lastMousePosition.triangleDot.x}px) translateY(${this.lastMousePosition.triangleDot.y}px) scale(${this.lastScale})`;
+        this.DOM.outerTriangle.style.transform = `translateX(${this.lastMousePosition.outerTriangle.x}px) translateY(${this.lastMousePosition.outerTriangle.y}px)`;
+        this.DOM.innerTriangle.style.transform = `translateX(${this.lastMousePosition.innerTriangle.x}px) translateY(${this.lastMousePosition.innerTriangle.y}px) scale(${this.lastScale})`;
         requestAnimationFrame(() => this.render());
-    }
-
-    enter() {
-        this.scale = 1.5;
-        this.DOM.triangle.style.display = 'none';
-    }
-
-    leave() {
-        this.scale = 1;
-        this.DOM.triangle.style.display = '';
     }
 }
