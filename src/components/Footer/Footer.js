@@ -39,7 +39,9 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <div className={styles['social-media']}>{socialMediaIcons()}</div>
+            <div className={`${styles['social-media']} cursor`}>
+                {socialMediaIcons()}
+            </div>
             <span className={styles.copyright}>
                 © 2020 Kayla Kremer. All rights reserved.
             </span>
