@@ -1,18 +1,62 @@
 @import 'styles';
 
 .nav-item {
-    &::after {
-        content: ' / ';
-    }
-    &:last-child::after {
-        content: '';
-    }
-    white-space: pre;
-    color: $pink;
+    display: block;
+    position: relative;
+    margin: 0 0.5rem;
 }
 
-.active {
-    text-decoration: underline;
-    text-underline-position: below;
-    color: $blue;
+.nav-link {
+    display: block;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    user-select: none;
+    position: relative;
+    text-align: center;
+    color: $pink;
+    transition: color 0.3s, border-color 0.3s;
+
+    &.active {
+        color: $blue;
+        &::before,
+        &::after {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &:hover {
+        outline: none;
+        color: $white;
+        &::before,
+        &::after {
+            border-color: $white;
+        }
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        border: 2px solid $blue;
+        transition: transform 0.3s, opacity 0.3s;
+        transition-timing-function: cubic-bezier(0.17, 0.67, 0.05, 1.29);
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+        border-width: 2px 0 0 2px;
+        transform: translate3d(5px, 5px, 0);
+    }
+
+    &::after {
+        right: 0;
+        bottom: 0;
+        border-width: 0 2px 2px 0;
+        transform: translate3d(-5px, -5px, 0);
+    }
 }

@@ -5,7 +5,12 @@ import styles from './nav-item.module.scss';
 
 const NavItem = ({ link, exact, content }) => (
     <li className={styles['nav-item']}>
-        <NavLink to={link} exact={exact} activeClassName={styles.active}>
+        <NavLink
+            to={link}
+            exact={exact}
+            className={styles['nav-link']}
+            activeClassName={styles.active}
+        >
             {content}
         </NavLink>
     </li>
