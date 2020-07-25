@@ -26,7 +26,7 @@ const list = [
 ];
 
 const Navigation = props => (
-    <nav className={styles.navigation}>
+    <nav className={`${styles.navigation} cursor`}>
         <NavList list={list} />
     </nav>
 );

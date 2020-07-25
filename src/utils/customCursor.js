@@ -52,22 +52,42 @@ export default class CustomCursor {
     }
 
     initHover() {
-        const handleMouseEnter = e => {
-            // const target = e.currentTarget;
+        const handleMouseEnter = () => {
             gsap.to(this.cursor.outerTriangle, {
                 scale: 2,
-                duration: 0.2
+                ease: 'elastic.out(2.5, 0.1)',
+                duration: 0.7
+            });
+            gsap.to(this.cursor.outerTriangle, {
+                opacity: 0,
+                delay: 0.1,
+                ease: 'elastic.out(2.5, 0.1)',
+                duration: 0.6
+            });
+            gsap.to(this.cursor.innerTriangle, {
+                scale: 1.5,
+                borderColor: 'transparent transparent #80b1ff transparent',
+                delay: 0.1,
+                duration: 0.1
             });
         };
 
         const handleMouseLeave = () => {
             gsap.to(this.cursor.outerTriangle, {
                 scale: 1,
-                duration: 0.2
+                opacity: 1,
+                ease: 'power1.in',
+                duration: 0.3
+            });
+            gsap.to(this.cursor.innerTriangle, {
+                scale: 1,
+                borderColor: 'transparent transparent #d680ff transparent',
+                ease: 'power1.in',
+                duration: 0.3
             });
         };
 
-        const clickableItems = document.querySelectorAll(['a', 'button']);
+        const clickableItems = document.querySelectorAll(['.cursor', 'button']);
         clickableItems.forEach(item => {
             item.addEventListener('mouseenter', handleMouseEnter);
             item.addEventListener('mouseleave', handleMouseLeave);
