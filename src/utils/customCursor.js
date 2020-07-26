@@ -10,7 +10,7 @@ export default class CustomCursor {
             innerTriangle: this.cursor.innerTriangle.getBoundingClientRect()
         };
         this.initCursor();
-        this.initHover();
+        this.initHovers();
     }
 
     getMousePosition = event => {
@@ -51,46 +51,48 @@ export default class CustomCursor {
         });
     }
 
-    initHover() {
-        const handleMouseEnter = () => {
-            gsap.to(this.cursor.outerTriangle, {
-                scale: 1.5,
-                ease: 'elastic.out(2.5, 0.1)',
-                duration: 0.7
-            });
-            gsap.to(this.cursor.outerTriangle, {
-                opacity: 0,
-                delay: 0.1,
-                ease: 'elastic.out(2.5, 0.1)',
-                duration: 0.6
-            });
-            gsap.to(this.cursor.innerTriangle, {
-                scale: 1.5,
-                borderColor: 'transparent transparent #80b1ff transparent',
-                delay: 0.1,
-                duration: 0.1
-            });
-        };
+    handleMouseEnter = () => {
+        gsap.to(this.cursor.outerTriangle, {
+            scale: 1.5,
+            ease: 'elastic.out(2.5, 0.1)',
+            duration: 0.7
+        });
+        gsap.to(this.cursor.outerTriangle, {
+            opacity: 0,
+            delay: 0.1,
+            ease: 'elastic.out(2.5, 0.1)',
+            duration: 0.6
+        });
+        gsap.to(this.cursor.innerTriangle, {
+            scale: 1.5,
+            borderColor: 'transparent transparent #80b1ff transparent',
+            delay: 0.1,
+            duration: 0.1
+        });
+    };
 
-        const handleMouseLeave = () => {
-            gsap.to(this.cursor.outerTriangle, {
-                scale: 1,
-                opacity: 1,
-                ease: 'power1.in',
-                duration: 0.3
-            });
-            gsap.to(this.cursor.innerTriangle, {
-                scale: 1,
-                borderColor: 'transparent transparent #d680ff transparent',
-                ease: 'power1.in',
-                duration: 0.3
-            });
-        };
+    handleMouseLeave = () => {
+        gsap.to(this.cursor.outerTriangle, {
+            scale: 1,
+            opacity: 1,
+            ease: 'power1.in',
+            duration: 0.3
+        });
+        gsap.to(this.cursor.innerTriangle, {
+            scale: 1,
+            borderColor: 'transparent transparent #d680ff transparent',
+            ease: 'power1.in',
+            duration: 0.3
+        });
+    };
 
-        const clickableItems = document.querySelectorAll(['.cursor', 'button']);
-        clickableItems.forEach(item => {
-            item.addEventListener('mouseenter', handleMouseEnter);
-            item.addEventListener('mouseleave', handleMouseLeave);
+    initHovers() {
+        const hoverItems = document.querySelectorAll(['.cursor', 'button']);
+        hoverItems.forEach(item => {
+            item.removeEventListener('mouseenter', this.handleMouseEnter);
+            item.removeEventListener('mouseleave', this.handleMouseLeave);
+            item.addEventListener('mouseenter', this.handleMouseEnter);
+            item.addEventListener('mouseleave', this.handleMouseLeave);
         });
     }
 }

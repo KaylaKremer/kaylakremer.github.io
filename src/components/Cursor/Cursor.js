@@ -1,5 +1,6 @@
 import React, { Component, createRef } from 'react';
 import CustomCursor from 'utils/customCursor';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './cursor.module.scss';
 
@@ -13,7 +14,17 @@ class Cursor extends Component {
     cursor = null;
 
     componentDidMount() {
-        this.createCustomCursor();
+        this.cursor = this.createCustomCursor();
+        return this.cursor;
+    }
+
+    componentDidUpdate(prevProps) {
+        const {
+            location: { pathname }
+        } = this.props;
+        if (prevProps.location.pathname !== pathname) {
+            this.cursor.initHovers();
+        }
     }
 
     createCustomCursor = () => {
@@ -40,4 +51,4 @@ class Cursor extends Component {
     }
 }
 
-export default Cursor;
+export default withRouter(Cursor);
