@@ -54,7 +54,7 @@ export default class CustomCursor {
     initHover() {
         const handleMouseEnter = () => {
             gsap.to(this.cursor.outerTriangle, {
-                scale: 2,
+                scale: 1.5,
                 ease: 'elastic.out(2.5, 0.1)',
                 duration: 0.7
             });
