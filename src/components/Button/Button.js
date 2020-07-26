@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './button.module.scss';
 
-const Button = ({ type, onClick = null, ariaLabel = null, children }) => (
+const Button = ({
+    type,
+    className = '',
+    onClick = null,
+    ariaLabel = null,
+    children
+}) => (
     <button
         type={type}
-        className={`${styles.button} cursor`}
+        className={`${styles.button} ${className} cursor`}
         onClick={onClick}
         aria-label={ariaLabel}
     >
@@ -16,6 +22,7 @@ const Button = ({ type, onClick = null, ariaLabel = null, children }) => (
 Button.prototypes = {
     type: PropTypes.string,
     onClick: PropTypes.func,
+    className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     ariaLabel: PropTypes.string,
     children: PropTypes.node
 };
