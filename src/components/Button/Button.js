@@ -4,14 +4,14 @@ import styles from './button.module.scss';
 
 const Button = ({
     type,
-    className = '',
+    icon = null,
     onClick = null,
     ariaLabel = null,
     children
 }) => (
     <button
         type={type}
-        className={`${styles.button} ${className} cursor`}
+        className={`${icon ? styles[`${icon}`] : `${styles.button}`} cursor`}
         onClick={onClick}
         aria-label={ariaLabel}
     >
@@ -22,7 +22,7 @@ const Button = ({
 Button.prototypes = {
     type: PropTypes.string,
     onClick: PropTypes.func,
-    className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    style: PropTypes.string,
     ariaLabel: PropTypes.string,
     children: PropTypes.node
 };

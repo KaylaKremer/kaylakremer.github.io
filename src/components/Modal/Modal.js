@@ -18,6 +18,7 @@ const Modal = ({ hideModal, children }) => {
         noScroll();
         hideModal();
     };
+
     return (
         <div>
             {noScroll()}
@@ -25,7 +26,7 @@ const Modal = ({ hideModal, children }) => {
             <div className={styles.modal}>
                 <Button
                     type="button"
-                    className={styles.close}
+                    icon="close"
                     onClick={close}
                     ariaLabel="close"
                 >
