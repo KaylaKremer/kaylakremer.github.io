@@ -1,6 +1,7 @@
 @import 'styles';
 
 .button {
+    outline: none;
     color: $white;
     padding: 1rem 2rem;
     background-color: $pink;
@@ -11,6 +12,7 @@
 }
 
 .close {
+    outline: none;
     position: absolute;
     top: 10px;
     right: 20px;

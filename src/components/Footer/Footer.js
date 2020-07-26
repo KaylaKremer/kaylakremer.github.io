@@ -39,7 +39,7 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <div className={`${styles['social-media']} cursor`}>
+            <div className={`${styles['social-media']} cursor-footer`}>
                 {socialMediaIcons()}
             </div>
             <span className={styles.copyright}>

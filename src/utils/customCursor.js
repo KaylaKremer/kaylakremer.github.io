@@ -86,13 +86,41 @@ export default class CustomCursor {
         });
     };
 
+    handleMouseClick = () => {
+        gsap.to(this.cursor.outerTriangle, {
+            scale: 1,
+            opacity: 1,
+            ease: 'power1.in',
+            duration: 0.3
+        });
+        gsap.to(this.cursor.innerTriangle, {
+            scale: 1,
+            borderColor: 'transparent transparent #d680ff transparent',
+            ease: 'power1.in',
+            duration: 0.3
+        });
+    };
+
     initHovers() {
-        const hoverItems = document.querySelectorAll(['.cursor', 'button']);
-        hoverItems.forEach(item => {
+        const headerFooterItems = document.querySelectorAll([
+            '.cursor-header',
+            '.cursor-footer'
+        ]);
+        headerFooterItems.forEach(item => {
             item.removeEventListener('mouseenter', this.handleMouseEnter);
             item.removeEventListener('mouseleave', this.handleMouseLeave);
             item.addEventListener('mouseenter', this.handleMouseEnter);
             item.addEventListener('mouseleave', this.handleMouseLeave);
+        });
+
+        const buttonItems = document.querySelectorAll(['.cursor-button']);
+        buttonItems.forEach(item => {
+            item.removeEventListener('mouseenter', this.handleMouseEnter);
+            item.removeEventListener('mouseleave', this.handleMouseLeave);
+            item.removeEventListener('click', this.handleMouseClick);
+            item.addEventListener('mouseenter', this.handleMouseEnter);
+            item.addEventListener('mouseleave', this.handleMouseLeave);
+            item.addEventListener('click', this.handleMouseClick);
         });
     }
 }

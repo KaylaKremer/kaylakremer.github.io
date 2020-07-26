@@ -11,7 +11,9 @@ const Button = ({
 }) => (
     <button
         type={type}
-        className={`${icon ? styles[`${icon}`] : `${styles.button}`} cursor`}
+        className={`${
+            icon ? styles[`${icon}`] : `${styles.button}`
+        } cursor-button`}
         onClick={onClick}
         aria-label={ariaLabel}
     >
