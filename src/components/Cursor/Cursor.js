@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import CustomCursor from 'utils/customCursor';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './cursor.module.scss';
 
@@ -20,9 +21,13 @@ class Cursor extends Component {
 
     componentDidUpdate(prevProps) {
         const {
-            location: { pathname }
+            location: { pathname },
+            modal
         } = this.props;
-        if (prevProps.location.pathname !== pathname) {
+        if (
+            prevProps.location.pathname !== pathname ||
+            prevProps.modal !== modal
+        ) {
             this.cursor.initHovers();
         }
     }
@@ -51,4 +56,18 @@ class Cursor extends Component {
     }
 }
 
-export default withRouter(Cursor);
+const mapStateToProps = state => ({
+    modal: state.contact.modal
+});
+
+Cursor.propTypes = {
+    modal: PropTypes.bool,
+    location: PropTypes.shape({
+        hash: PropTypes.string,
+        pathname: PropTypes.string,
+        search: PropTypes.string,
+        state: PropTypes.string
+    })
+};
+
+export default connect(mapStateToProps, null)(withRouter(Cursor));
