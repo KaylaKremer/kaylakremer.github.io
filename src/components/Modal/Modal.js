@@ -8,14 +8,25 @@ import PropTypes from 'prop-types';
 import styles from './modal.module.scss';
 
 const Modal = ({ hideModal, children }) => {
+    const noScroll = () => {
+        document
+            .querySelector('html')
+            .classList.toggle(`${styles['no-scroll']}`);
+    };
+
+    const close = () => {
+        noScroll();
+        hideModal();
+    };
     return (
         <div>
+            {noScroll()}
             <Backdrop />
             <div className={styles.modal}>
                 <Button
                     type="button"
                     className={styles.close}
-                    onClick={hideModal}
+                    onClick={close}
                     ariaLabel="close"
                 >
                     <Icon icon="window-close" size="2x" />

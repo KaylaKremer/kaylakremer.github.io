@@ -24,7 +24,7 @@ html {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4rem 1fr 7rem;
+    grid-template-rows: 4rem 150% 7rem;
     grid-template-areas:
         'header'
         'main'

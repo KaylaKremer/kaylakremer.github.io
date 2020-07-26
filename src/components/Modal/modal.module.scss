@@ -34,7 +34,12 @@
         color: $pink;
         background-color: transparent;
         &:hover {
-            color: $blue;
+            color: $black;
+            background-color: transparent;
         }
     }
+}
+
+.no-scroll {
+    overflow: hidden;
 }
