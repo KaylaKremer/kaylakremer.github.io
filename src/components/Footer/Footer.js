@@ -15,24 +15,33 @@ const Footer = () => {
         return Object.keys(socialMedia).map(key => {
             if (key !== 'email') {
                 return (
-                    <Icon
+                    <div
                         key={`${key === 'linkedin-in' ? 'linkedin' : key}`}
-                        icon={['fab', key]}
-                        size="2x"
-                        className={styles['social-media-icon']}
-                        link={socialMedia[key]}
-                        title={`"${key === 'linkedin-in' ? 'linkedin' : key}"`}
-                    />
+                        className={styles['social-media-icon-outer']}
+                    >
+                        <div className={styles['social-media-icon-inner']}>
+                            <Icon
+                                icon={['fab', key]}
+                                className={styles['social-media-icon']}
+                                link={socialMedia[key]}
+                                title={`"${
+                                    key === 'linkedin-in' ? 'linkedin' : key
+                                }"`}
+                            />
+                        </div>
+                    </div>
                 );
             }
             return (
-                <Icon
-                    key={key}
-                    icon="envelope"
-                    size="2x"
-                    className={styles['social-media-icon']}
-                    link={socialMedia[key]}
-                />
+                <div key={key} className={styles['social-media-icon-outer']}>
+                    <div className={styles['social-media-icon-inner']}>
+                        <Icon
+                            icon="envelope"
+                            className={styles['social-media-icon']}
+                            link={socialMedia[key]}
+                        />
+                    </div>
+                </div>
             );
         });
     };
