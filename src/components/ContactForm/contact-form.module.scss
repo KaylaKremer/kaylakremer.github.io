@@ -22,13 +22,12 @@
             padding: 0.25rem;
             flex: 1 0 100%;
             height: auto;
+            cursor: none;
+            outline: none;
         }
         .error {
             color: $pink;
             margin-top: 0.25rem;
         }
-    }
-    .submit {
-        width: 80%;
     }
 }

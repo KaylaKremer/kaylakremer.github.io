@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from 'components/Button/Button';
+import Tooltip from 'components/Tooltip/Tooltip';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact-form.module.scss';
@@ -27,76 +28,78 @@ const ContactForm = ({ sendForm }) => {
             })}
             onSubmit={values => sendForm(values)}
         >
-            <Form className={styles['contact-form']}>
-                <div className={styles.section}>
-                    <label
-                        className={styles.label}
-                        htmlFor="name"
-                        aria-label="name"
-                    >
-                        Name
-                    </label>
-                    <Field
-                        className={styles.field}
-                        name="name"
-                        id="name"
-                        type="text"
-                    />
-                    <div className={styles.error}>
-                        <ErrorMessage name="name" />
+            {({ errors }) => (
+                <Form className={styles['contact-form']}>
+                    <div className={styles.section}>
+                        <label
+                            className={styles.label}
+                            htmlFor="name"
+                            aria-label="name"
+                        >
+                            Name
+                        </label>
+                        <Field
+                            className={styles.field}
+                            name="name"
+                            id="name"
+                            type="text"
+                        />
+                        <Tooltip error={errors.name}>
+                            <ErrorMessage name="name" />
+                        </Tooltip>
                     </div>
-                </div>
 
-                <div className={styles.section}>
-                    <label className={styles.label} htmlFor="email">
-                        Email Address
-                    </label>
-                    <Field
-                        className={styles.field}
-                        name="email"
-                        id="email"
-                        type="email"
-                    />
-                    <div className={styles.error}>
-                        <ErrorMessage name="email" />
+                    <div className={styles.section}>
+                        <label className={styles.label} htmlFor="email">
+                            Email Address
+                        </label>
+                        <Field
+                            className={styles.field}
+                            name="email"
+                            id="email"
+                            type="email"
+                        />
+                        <Tooltip error={errors.email}>
+                            <ErrorMessage name="email" />
+                        </Tooltip>
                     </div>
-                </div>
 
-                <div className={styles.section}>
-                    <label className={styles.label} htmlFor="subject">
-                        Subject
-                    </label>
-                    <Field
-                        className={styles.field}
-                        name="subject"
-                        id="subject"
-                        type="text"
-                    />
-                    <div className={styles.error}>
-                        <ErrorMessage name="subject" />
+                    <div className={styles.section}>
+                        <label className={styles.label} htmlFor="subject">
+                            Subject
+                        </label>
+                        <Field
+                            className={styles.field}
+                            name="subject"
+                            id="subject"
+                            type="text"
+                        />
+                        <Tooltip error={errors.subject}>
+                            <ErrorMessage name="subject" />
+                        </Tooltip>
                     </div>
-                </div>
 
-                <div className={styles.section}>
-                    <label className={styles.label} htmlFor="message">
-                        Message
-                    </label>
-                    <Field
-                        className={styles.field}
-                        name="message"
-                        id="message"
-                        as="textarea"
-                        rows="10"
-                    />
-                    <div className={styles.error}>
-                        <ErrorMessage name="message" />
+                    <div className={styles.section}>
+                        <label className={styles.label} htmlFor="message">
+                            Message
+                        </label>
+                        <Field
+                            className={styles.field}
+                            name="message"
+                            id="message"
+                            as="textarea"
+                            rows="10"
+                        />
+                        <Tooltip error={errors.message}>
+                            <ErrorMessage name="message" />
+                        </Tooltip>
                     </div>
-                </div>
 
-                <Button className={styles.submit} type="submit">
-                    Submit
-                </Button>
-            </Form>
+                    <Button className={styles.submit} type="submit">
+                        Send Email
+                    </Button>
+                </Form>
+            )}
         </Formik>
     );
 };
