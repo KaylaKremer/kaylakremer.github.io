@@ -36,12 +36,24 @@ export default class CustomCursor {
     };
 
     initCursor() {
+        gsap.set(this.cursor.outerTriangle, {
+            x: window.innerWidth / 2,
+            xPercent: -50,
+            y: window.innerHeight / 2 - 5,
+            yPercent: -50
+        });
+        gsap.set(this.cursor.innerTriangle, {
+            x: window.innerWidth / 2,
+            xPercent: -50,
+            y: window.innerHeight / 2 - 1,
+            yPercent: -50
+        });
         window.addEventListener('mousemove', e => {
             const mousePosition = this.getMousePosition(e);
             gsap.to(this.cursor.outerTriangle, {
                 duration: 0.2,
-                x: mousePosition.x - this.bounds.outerTriangle.width / 2 - 5,
-                y: mousePosition.y - this.bounds.outerTriangle.width / 2 - 8
+                x: mousePosition.x - this.bounds.outerTriangle.width / 2 + 5,
+                y: mousePosition.y - this.bounds.outerTriangle.width / 2 + 2
             });
             gsap.to(this.cursor.innerTriangle, {
                 duration: 0.00001,
