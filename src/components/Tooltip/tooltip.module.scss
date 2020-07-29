@@ -1,0 +1,104 @@
+@import 'styles';
+
+[tooltip] {
+    position: relative;
+    &::before,
+    &::after {
+        position: absolute;
+        pointer-events: none;
+        cursor: none;
+    }
+    &::before {
+        z-index: 1001;
+        border: 6px solid transparent;
+        background: transparent;
+        content: '';
+    }
+    &::after {
+        z-index: 1000;
+        padding: 5px;
+        width: fit-content;
+        background-color: $tooltip;
+        color: $white;
+        content: attr(tooltip);
+        font-size: 14px;
+        line-height: 1.2;
+        border-radius: 3px;
+        text-align: center;
+    }
+}
+
+/* Top */
+.tooltip-top {
+    &::before,
+    &::after {
+        bottom: 100%;
+        left: 50%;
+    }
+    &::before {
+        margin-left: -6%;
+        margin-bottom: -12px;
+        border-top-color: $tooltip;
+    }
+}
+
+/* Bottom */
+.tooltip-bottom {
+    &::before,
+    &::after {
+        top: 100%;
+        bottom: auto;
+        left: 50%;
+    }
+    &::before {
+        margin-top: -12px;
+        margin-bottom: 0;
+        margin-left: 6%;
+        border-top-color: transparent;
+        border-bottom-color: $tooltip;
+    }
+}
+
+/* Left */
+.tooltip-left {
+    &::before,
+    &::after {
+        right: 100%;
+        bottom: 50%;
+        left: auto;
+    }
+    &::before {
+        margin-left: 0;
+        margin-right: -12px;
+        margin-bottom: 0;
+        border-top-color: transparent;
+        border-left-color: $tooltip;
+    }
+}
+
+/* Right */
+.tooltip-right {
+    &::before,
+    &::after {
+        bottom: 50%;
+        left: 100%;
+    }
+    &::before {
+        margin-bottom: 0;
+        margin-left: -12px;
+        border-top-color: transparent;
+        border-right-color: $tooltip;
+    }
+}
+
+/* Left & Right */
+.tooltip-left,
+.tooltip-right {
+    &::before {
+        top: -5px;
+    }
+    &::after {
+        margin-left: 0;
+        margin-bottom: -13px;
+    }
+}

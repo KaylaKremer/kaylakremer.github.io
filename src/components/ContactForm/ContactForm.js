@@ -31,58 +31,67 @@ const ContactForm = ({ sendForm }) => {
             {({ errors }) => (
                 <Form className={styles['contact-form']}>
                     <div className={styles.section}>
-                        <label
-                            className={styles.label}
-                            htmlFor="name"
-                            aria-label="name"
-                        >
-                            Name
-                        </label>
+                        <div className={styles['label-tooltip']}>
+                            <label
+                                className={styles.label}
+                                htmlFor="name"
+                                aria-label="name"
+                            >
+                                Name
+                            </label>
+                            <Tooltip
+                                className="tooltip-right"
+                                tooltip={errors.name}
+                            />
+                        </div>
                         <Field
                             className={styles.field}
                             name="name"
                             id="name"
                             type="text"
                         />
-                        <Tooltip error={errors.name}>
-                            <ErrorMessage name="name" />
-                        </Tooltip>
                     </div>
 
                     <div className={styles.section}>
                         <label className={styles.label} htmlFor="email">
                             Email Address
                         </label>
+                        <Tooltip
+                            className="tooltip-right"
+                            tooltip={errors.email}
+                        />
                         <Field
                             className={styles.field}
                             name="email"
                             id="email"
                             type="email"
                         />
-                        <Tooltip error={errors.email}>
-                            <ErrorMessage name="email" />
-                        </Tooltip>
                     </div>
 
                     <div className={styles.section}>
                         <label className={styles.label} htmlFor="subject">
                             Subject
                         </label>
+                        <Tooltip
+                            className="tooltip-right"
+                            tooltip={errors.subject}
+                        />
                         <Field
                             className={styles.field}
                             name="subject"
                             id="subject"
                             type="text"
                         />
-                        <Tooltip error={errors.subject}>
-                            <ErrorMessage name="subject" />
-                        </Tooltip>
                     </div>
 
                     <div className={styles.section}>
                         <label className={styles.label} htmlFor="message">
                             Message
                         </label>
+                        <Tooltip
+                            className="tooltip-right"
+                            tooltip={errors.message}
+                        />
                         <Field
                             className={styles.field}
                             name="message"
@@ -90,9 +99,6 @@ const ContactForm = ({ sendForm }) => {
                             as="textarea"
                             rows="10"
                         />
-                        <Tooltip error={errors.message}>
-                            <ErrorMessage name="message" />
-                        </Tooltip>
                     </div>
 
                     <Button className={styles.submit} type="submit">

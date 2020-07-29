@@ -12,7 +12,7 @@
         width: 80%;
         .label {
             color: $pink;
-            margin-bottom: 0.25rem;
+            margin-right: 0.75rem;
         }
         .field {
             border: 3px solid $blue;
@@ -29,5 +29,11 @@
             color: $pink;
             margin-top: 0.25rem;
         }
+    }
+    .label-tooltip {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-bottom: 0.5rem;
     }
 }
