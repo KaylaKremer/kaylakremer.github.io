@@ -1,5 +1,6 @@
 import React from 'react';
 import Tooltip from 'components/Tooltip/Tooltip';
+import { capitalize } from 'utils/utils';
 import PropTypes from 'prop-types';
 import styles from './label.module.scss';
 
@@ -7,7 +8,7 @@ const Label = ({ label, tooltip = null }) => {
     return (
         <div className={styles.label}>
             <label htmlFor={label} aria-label={label}>
-                {label}
+                {capitalize(label)}
             </label>
             {tooltip && <Tooltip className="tooltip-right" tooltip={tooltip} />}
         </div>

@@ -4,3 +4,6 @@ export const updateState = (oldState, newState) => {
         ...newState
     };
 };
+
+export const capitalize = str =>
+    str.replace(/^\w/, letter => letter.toUpperCase());
