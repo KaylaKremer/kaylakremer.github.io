@@ -1,6 +1,6 @@
 @import 'styles';
 
-[tooltip] {
+.tooltip {
     position: relative;
     &::before,
     &::after {
@@ -17,7 +17,7 @@
     &::after {
         z-index: 1000;
         padding: 5px;
-        width: fit-content;
+        width: max-content;
         background-color: $tooltip;
         color: $white;
         content: attr(tooltip);

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import styles from './tooltip.module.scss';
 
 const Tooltip = ({ tooltip, className }) => {
-    return <div className={styles[`${className}`]} tooltip={tooltip} />;
+    return (
+        <div
+            className={`${styles.tooltip} ${styles[`${className}`]}`}
+            tooltip={tooltip}
+        />
+    );
 };
 
 Tooltip.propTypes = {

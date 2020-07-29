@@ -1,0 +1,12 @@
+@import 'styles';
+
+.label {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    label {
+        color: $pink;
+        margin-right: 0.75rem;
+    }
+}

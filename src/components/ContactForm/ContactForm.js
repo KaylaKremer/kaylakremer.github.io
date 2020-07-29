@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from 'components/Button/Button';
 import Tooltip from 'components/Tooltip/Tooltip';
+import Label from 'components/Label/Label';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact-form.module.scss';
@@ -31,19 +32,7 @@ const ContactForm = ({ sendForm }) => {
             {({ errors }) => (
                 <Form className={styles['contact-form']}>
                     <div className={styles.section}>
-                        <div className={styles['label-tooltip']}>
-                            <label
-                                className={styles.label}
-                                htmlFor="name"
-                                aria-label="name"
-                            >
-                                Name
-                            </label>
-                            <Tooltip
-                                className="tooltip-right"
-                                tooltip={errors.name}
-                            />
-                        </div>
+                        <Label label="name" tooltip={errors.name} />
                         <Field
                             className={styles.field}
                             name="name"
@@ -53,13 +42,7 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <label className={styles.label} htmlFor="email">
-                            Email Address
-                        </label>
-                        <Tooltip
-                            className="tooltip-right"
-                            tooltip={errors.email}
-                        />
+                        <Label label="email" tooltip={errors.email} />
                         <Field
                             className={styles.field}
                             name="email"
@@ -69,13 +52,7 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <label className={styles.label} htmlFor="subject">
-                            Subject
-                        </label>
-                        <Tooltip
-                            className="tooltip-right"
-                            tooltip={errors.subject}
-                        />
+                        <Label label="subject" tooltip={errors.subject} />
                         <Field
                             className={styles.field}
                             name="subject"
@@ -85,13 +62,7 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <label className={styles.label} htmlFor="message">
-                            Message
-                        </label>
-                        <Tooltip
-                            className="tooltip-right"
-                            tooltip={errors.message}
-                        />
+                        <Label label="message" tooltip={errors.message} />
                         <Field
                             className={styles.field}
                             name="message"
