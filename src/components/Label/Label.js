@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from 'components/Tooltip/Tooltip';
-import { capitalize } from 'utils/utils';
+import { capitalize } from 'utils';
 import PropTypes from 'prop-types';
 import styles from './label.module.scss';
 
