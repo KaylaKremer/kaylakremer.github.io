@@ -1,4 +1,5 @@
 @import 'styles';
+@include gradient;
 
 .footer {
     grid-area: footer;
@@ -18,7 +19,7 @@
         .social-media-icon-outer {
             padding: 0.25rem;
             border-radius: 5px;
-            background: linear-gradient(90deg, $pink 35%, $blue 100%);
+            background: $gradient;
             background-size: 200% 200%;
             animation: gradient 2s infinite;
             margin: 0 0.5rem;
@@ -49,17 +50,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
     }
 }

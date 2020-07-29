@@ -1,4 +1,5 @@
 @import 'styles';
+@include gradient;
 
 .tooltip {
     position: relative;
@@ -9,53 +10,24 @@
         cursor: none;
     }
     &::before {
-        z-index: 1001;
+        z-index: 1000;
         border: 6px solid transparent;
         background: transparent;
         content: '';
     }
     &::after {
-        z-index: 1000;
+        z-index: 1001;
         padding: 5px;
         width: max-content;
-        background-color: $tooltip;
+        background: $gradient;
+        background-size: 400% 400%;
+        animation: gradient 2s infinite;
         color: $white;
         content: attr(tooltip);
         font-size: 14px;
         line-height: 1.2;
         border-radius: 3px;
         text-align: center;
-    }
-}
-
-/* Top */
-.tooltip-top {
-    &::before,
-    &::after {
-        bottom: 100%;
-        left: 50%;
-    }
-    &::before {
-        margin-left: -6%;
-        margin-bottom: -12px;
-        border-top-color: $tooltip;
-    }
-}
-
-/* Bottom */
-.tooltip-bottom {
-    &::before,
-    &::after {
-        top: 100%;
-        bottom: auto;
-        left: 50%;
-    }
-    &::before {
-        margin-top: -12px;
-        margin-bottom: 0;
-        margin-left: 6%;
-        border-top-color: transparent;
-        border-bottom-color: $tooltip;
     }
 }
 
@@ -69,10 +41,14 @@
     }
     &::before {
         margin-left: 0;
-        margin-right: -12px;
+        margin-right: -5px;
         margin-bottom: 0;
-        border-top-color: transparent;
-        border-left-color: $tooltip;
+        background: linear-gradient(90deg, white, white), $gradient;
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        transform: rotate(45deg);
+        background-size: 400% 400%;
+        animation: gradient 2s infinite;
     }
 }
 
@@ -85,9 +61,13 @@
     }
     &::before {
         margin-bottom: 0;
-        margin-left: -12px;
-        border-top-color: transparent;
-        border-right-color: $tooltip;
+        margin-left: -5px;
+        background: linear-gradient(90deg, white, white), $gradient;
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        transform: rotate(45deg);
+        background-size: 400% 400%;
+        animation: gradient 2s infinite;
     }
 }
 
