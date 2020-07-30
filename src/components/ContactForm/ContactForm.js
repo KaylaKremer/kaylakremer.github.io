@@ -2,11 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Button from 'components/Button/Button';
-import Tooltip from 'components/Tooltip/Tooltip';
-import Label from 'components/Label/Label';
-import Input from 'components/Input/Input';
 import Field from 'components/Field/Field';
+import Button from 'components/Button/Button';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact-form.module.scss';
@@ -33,7 +30,7 @@ const ContactForm = ({ sendForm }) => (
         {({ errors, touched, getFieldProps }) => (
             <Form className={styles['contact-form']}>
                 <div className={styles.section}>
-                    <div className={styles['label-tooltip']}>
+                    {/* <div className={styles['label-tooltip']}>
                         <Label
                             label="name"
                             error={errors.name}
@@ -49,13 +46,14 @@ const ContactForm = ({ sendForm }) => (
                         id="name"
                         type="text"
                         {...getFieldProps('name')}
+                    /> */}
+                    <Field
+                        error={errors.name}
+                        touched={touched.name}
+                        name="name"
+                        id="name"
+                        {...getFieldProps('name')}
                     />
-                    {/* <Field
-                            className={styles.field}
-                            name="name"
-                            id="name"
-                            type="text"
-                        /> */}
                 </div>
 
                 {/* <div className={styles.section}>
