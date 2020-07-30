@@ -3,13 +3,11 @@ import { capitalize } from 'utils';
 import PropTypes from 'prop-types';
 import styles from './label.module.scss';
 
-const Label = ({ label }) => {
-    return (
-        <label className={styles.label} htmlFor={label} aria-label={label}>
-            {capitalize(label)}
-        </label>
-    );
-};
+const Label = ({ label }) => (
+    <label className={styles.label} htmlFor={label} aria-label={label}>
+        {capitalize(label)}
+    </label>
+);
 
 Label.propTypes = {
     label: PropTypes.string
