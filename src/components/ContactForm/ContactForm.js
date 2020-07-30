@@ -29,10 +29,14 @@ const ContactForm = ({ sendForm }) => {
             })}
             onSubmit={values => sendForm(values)}
         >
-            {({ errors }) => (
+            {({ errors, touched }) => (
                 <Form className={styles['contact-form']}>
                     <div className={styles.section}>
-                        <Label label="name" tooltip={errors.name} />
+                        <Label
+                            label="name"
+                            error={errors.name}
+                            touched={touched.name}
+                        />
                         <Field
                             className={styles.field}
                             name="name"
@@ -42,7 +46,11 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <Label label="email" tooltip={errors.email} />
+                        <Label
+                            label="email"
+                            error={errors.email}
+                            touched={touched.email}
+                        />
                         <Field
                             className={styles.field}
                             name="email"
@@ -52,7 +60,11 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <Label label="subject" tooltip={errors.subject} />
+                        <Label
+                            label="subject"
+                            error={errors.subject}
+                            touched={touched.subject}
+                        />
                         <Field
                             className={styles.field}
                             name="subject"
@@ -62,7 +74,11 @@ const ContactForm = ({ sendForm }) => {
                     </div>
 
                     <div className={styles.section}>
-                        <Label label="message" tooltip={errors.message} />
+                        <Label
+                            label="message"
+                            error={errors.message}
+                            touched={touched.message}
+                        />
                         <Field
                             className={styles.field}
                             name="message"
