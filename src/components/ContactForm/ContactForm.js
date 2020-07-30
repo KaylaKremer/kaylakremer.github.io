@@ -29,75 +29,47 @@ const ContactForm = ({ sendForm }) => (
     >
         {({ errors, touched, getFieldProps }) => (
             <Form className={styles['contact-form']}>
-                <div className={styles.section}>
-                    {/* <div className={styles['label-tooltip']}>
-                        <Label
-                            label="name"
-                            error={errors.name}
-                            touched={touched.name}
-                        />
-                        {errors.name && touched.name && (
-                            <Tooltip direction="right" tooltip={errors.name} />
-                        )}
-                    </div>
-                    <Input
-                        classNames={[]}
-                        name="name"
-                        id="name"
-                        type="text"
-                        {...getFieldProps('name')}
-                    /> */}
-                    <Field
-                        error={errors.name}
-                        touched={touched.name}
-                        name="name"
-                        id="name"
-                        {...getFieldProps('name')}
-                    />
-                </div>
+                <Field
+                    error={errors.name}
+                    touched={touched.name}
+                    id="name"
+                    name="name"
+                    type="text"
+                    {...getFieldProps('name')}
+                />
+
+                <Field
+                    error={errors.email}
+                    touched={touched.email}
+                    id="email"
+                    name="email"
+                    type="text"
+                    {...getFieldProps('email')}
+                />
+
+                <Field
+                    error={errors.subject}
+                    touched={touched.subject}
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    {...getFieldProps('subject')}
+                />
 
                 {/* <div className={styles.section}>
-                        <Label
-                            label="email"
-                            error={errors.email}
-                            touched={touched.email}
-                        />
-                        <Field
-                            className={styles.field}
-                            name="email"
-                            id="email"
-                            type="email"
-                        />
-                    </div>
-
-                    <div className={styles.section}>
-                        <Label
-                            label="subject"
-                            error={errors.subject}
-                            touched={touched.subject}
-                        />
-                        <Field
-                            className={styles.field}
-                            name="subject"
-                            id="subject"
-                            type="text"
-                        />
-                    </div>
-
-                    <div className={styles.section}>
-                        <Label
-                            label="message"
-                            error={errors.message}
-                            touched={touched.message}
-                        />
-                        <Field
-                            className={styles.field}
-                            name="message"
-                            id="message"
-                            as="textarea"
-                            rows="10"
-                        />
-                    </div> */}
+                    <Label
+                        label="message"
+                        error={errors.message}
+                        touched={touched.message}
+                    />
+                    <Field
+                        className={styles.field}
+                        name="message"
+                        id="message"
+                        as="textarea"
+                        rows="10"
+                    />
+                </div> */}
 
                 <Button className={styles.submit} type="submit">
                     Send Email
