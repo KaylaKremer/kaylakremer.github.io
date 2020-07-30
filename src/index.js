@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import App from 'App';
 import contactReducer from 'store/reducers/contact';
-import 'utils/fontawesome';
+import 'utils/fontAwesome';
 import 'normalize-scss';
 
 const reducer = combineReducers({

@@ -1,5 +1,5 @@
-import * as actionTypes from '../actions/actionTypes';
-import { updateState } from '../../utils/utils';
+import { updateState } from 'utils';
+import * as actionTypes from 'store/actions/actionTypes';
 
 const initialState = {
     modal: false,
