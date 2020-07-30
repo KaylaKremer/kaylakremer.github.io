@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './tooltip.module.scss';
 
-const Tooltip = ({ tooltip, className }) => {
+const Tooltip = ({ tooltip, direction }) => {
     return (
         <div
-            className={`${styles.tooltip} ${styles[`${className}`]}`}
+            className={`${styles.tooltip} ${styles[direction]}`}
             tooltip={tooltip}
         />
     );
@@ -13,7 +13,7 @@ const Tooltip = ({ tooltip, className }) => {
 
 Tooltip.propTypes = {
     tooltip: PropTypes.string,
-    className: PropTypes.string
+    direction: PropTypes.string
 };
 
 export default Tooltip;

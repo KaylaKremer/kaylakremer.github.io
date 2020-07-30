@@ -23,7 +23,10 @@ const Icon = ({ icon, link = null, title = null, ...options }) => {
 };
 
 Icon.propTypes = {
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string)
+    ]),
     link: PropTypes.string,
     title: PropTypes.string
 };
