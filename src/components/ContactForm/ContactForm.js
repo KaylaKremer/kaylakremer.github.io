@@ -56,20 +56,14 @@ const ContactForm = ({ sendForm }) => (
                     {...getFieldProps('subject')}
                 />
 
-                {/* <div className={styles.section}>
-                    <Label
-                        label="message"
-                        error={errors.message}
-                        touched={touched.message}
-                    />
-                    <Field
-                        className={styles.field}
-                        name="message"
-                        id="message"
-                        as="textarea"
-                        rows="10"
-                    />
-                </div> */}
+                <Field
+                    error={errors.message}
+                    touched={touched.message}
+                    id="message"
+                    name="message"
+                    type="textarea"
+                    {...getFieldProps('message')}
+                />
 
                 <Button className={styles.submit} type="submit">
                     Send Email
