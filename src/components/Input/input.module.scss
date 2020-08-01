@@ -1,0 +1,13 @@
+@import 'styles';
+
+.input {
+    border: 3px solid $blue;
+    border-radius: 3px;
+    background-color: $black;
+    color: $white;
+    padding: 0.25rem;
+    flex: 1 0 100%;
+    height: auto;
+    cursor: none;
+    outline: none;
+}
