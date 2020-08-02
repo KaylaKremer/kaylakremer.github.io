@@ -1,0 +1,45 @@
+@import 'styles';
+
+.field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+    position: relative;
+
+    .label-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        .label {
+            color: $pink;
+            margin: 0 0.5rem;
+            position: absolute;
+            top: 0.5rem;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .input,
+    .textarea {
+        border: 3px solid $blue;
+        border-radius: 3px;
+        background-color: $black;
+        color: $white;
+        padding: 0.25rem;
+        flex: 1 0 100%;
+        height: auto;
+        cursor: none;
+        outline: none;
+        transition: all 0.3s ease;
+        &:focus ~ .label-container .label,
+        &:not(:placeholder-shown) ~ .label-container .label {
+            top: -1.5rem;
+        }
+        &:not(:focus):placeholder-shown ~ .label-container .label {
+            top: 0.5rem;
+        }
+    }
+}

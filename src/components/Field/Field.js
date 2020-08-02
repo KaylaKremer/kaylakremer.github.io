@@ -4,7 +4,7 @@ import Tooltip from 'components/Tooltip/Tooltip';
 import Input from 'components/Input/Input';
 import TextArea from 'components/TextArea/TextArea';
 import PropTypes from 'prop-types';
-import styles from './field.module.scss';
+import './field.scss';
 
 const Field = ({
     error,
@@ -16,29 +16,34 @@ const Field = ({
     rows = 10,
     ...fieldProps
 }) => (
-    <div className={styles.field}>
-        <div className={styles.label}>
-            <Label label={name} error={error} touched={touched} />
-            {error && touched && <Tooltip direction="right" tooltip={error} />}
-        </div>
+    <div className="field">
         {type !== 'textarea' ? (
             <Input
-                classNames={[]}
                 name={name}
                 id={id}
                 type={type}
+                className="input"
                 {...fieldProps}
             />
         ) : (
             <TextArea
-                classNames={[]}
                 name={name}
                 id={id}
                 cols={cols}
                 rows={rows}
+                className="textarea"
                 {...fieldProps}
             />
         )}
+        <div className="label-container">
+            <Label
+                label={name}
+                error={error}
+                touched={touched}
+                className="label"
+            />
+            {error && touched && <Tooltip direction="right" tooltip={error} />}
+        </div>
     </div>
 );
 
