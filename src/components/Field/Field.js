@@ -42,7 +42,11 @@ const Field = ({
                 touched={touched}
                 className="label"
             />
-            {error && touched && <Tooltip direction="left" tooltip={error} />}
+            {error && touched && (
+                <div className="tooltip-container">
+                    <Tooltip className="tooltip left" tooltip={error} />
+                </div>
+            )}
         </div>
     </div>
 );
