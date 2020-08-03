@@ -125,7 +125,7 @@ export default class CustomCursor {
             item.addEventListener('mouseleave', this.handleMouseLeave);
         });
 
-        const buttonItems = document.querySelectorAll(['.cursor-button']);
+        const buttonItems = document.querySelectorAll('.cursor-button');
         buttonItems.forEach(item => {
             item.removeEventListener('mouseenter', this.handleMouseEnter);
             item.removeEventListener('mouseleave', this.handleMouseLeave);

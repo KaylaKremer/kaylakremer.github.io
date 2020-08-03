@@ -42,11 +42,11 @@
 
         .label {
             color: $pink;
-            //margin-left: 0.5rem;
             position: absolute;
             top: 0;
             left: 0;
             transition: all 0.3s ease;
+            cursor: none;
         }
         .tooltip-container {
             position: absolute;
@@ -94,7 +94,8 @@
                     margin-right: 10px;
                     margin-bottom: 12px;
                     margin-top: 3px;
-                    background: linear-gradient(90deg, white, white), $gradient;
+                    background: linear-gradient(90deg, $black, $black),
+                        $gradient;
                     background-clip: padding-box, border-box;
                     background-origin: padding-box, border-box;
                     transform: rotate(45deg);
@@ -112,7 +113,7 @@
                 &::before {
                     margin-bottom: 9px;
                     margin-left: -3px;
-                    background: linear-gradient(90deg, $white, $white),
+                    background: linear-gradient(90deg, $black, $black),
                         $gradient;
                     background-clip: padding-box, border-box;
                     background-origin: padding-box, border-box;
