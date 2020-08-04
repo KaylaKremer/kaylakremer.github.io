@@ -12,8 +12,6 @@
     .textarea {
         border-bottom: 3px solid $blue;
         border-left: 3px solid $blue;
-        //border-radius: 3px;
-        //background-color: $black;
         background-color: transparent;
         color: $white;
         padding: 0.25rem;
@@ -28,6 +26,12 @@
             left: 0.25rem;
             transform: scale(0.75);
         }
+        &:not(:placeholder-shown) ~ .label-container .label {
+            color: $pink;
+        }
+        &:not(:placeholder-shown) {
+            border-color: $pink;
+        }
         &:not(:focus):placeholder-shown ~ .label-container .label {
             top: 0.25rem;
             left: 0.5rem;
@@ -41,7 +45,7 @@
         align-items: center;
 
         .label {
-            color: $pink;
+            color: $blue;
             position: absolute;
             top: 0;
             left: 0;
@@ -70,7 +74,6 @@
                 &::after {
                     z-index: 1001;
                     padding: 5px;
-                    width: max-content;
                     background: $gradient;
                     background-size: 400% 400%;
                     animation: gradient 2s infinite;

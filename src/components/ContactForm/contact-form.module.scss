@@ -5,4 +5,11 @@
     flex-flow: column wrap;
     align-items: center;
     width: 100%;
+    .buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+    }
 }

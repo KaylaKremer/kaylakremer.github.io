@@ -11,9 +11,11 @@ const Button = ({
 }) => (
     <button
         type={type}
-        className={`${icon ? styles[`${icon}`] : styles.button} ${
-            type === 'submit' ? styles.submit : null
-        } cursor-button`}
+        className={`
+        ${icon ? styles[`${icon}`] : styles.button} 
+        ${type === 'submit' ? styles.submit : null} 
+        ${type === 'reset' ? styles.reset : null} 
+        cursor-button`}
         onClick={onClick}
         aria-label={ariaLabel}
     >
