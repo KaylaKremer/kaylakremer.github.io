@@ -3,7 +3,7 @@ import { capitalize } from 'utils';
 import PropTypes from 'prop-types';
 
 const Label = ({ label, className }) => (
-    <label className={className} htmlFor={label} ariaLabel={label}>
+    <label className={className} htmlFor={label} aria-label={label}>
         {capitalize(label)}
     </label>
 );

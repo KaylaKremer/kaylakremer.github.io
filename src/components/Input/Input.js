@@ -7,7 +7,7 @@ const Input = ({ name, id, type, className, ...props }) => (
         name={name}
         id={id}
         type={type}
-        className={className}
+        className={`${className} cursor-form`}
         placeholder=" "
         {...props}
     />

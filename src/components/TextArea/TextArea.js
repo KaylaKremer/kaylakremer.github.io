@@ -5,7 +5,7 @@ const TextArea = ({ name, id, className, cols, rows, ...props }) => (
     <textarea
         name={name}
         id={id}
-        className={className}
+        className={`${className} cursor-form`}
         rows={rows}
         cols={cols}
         placeholder=" "
