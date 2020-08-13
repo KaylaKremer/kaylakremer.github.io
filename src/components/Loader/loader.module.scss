@@ -10,13 +10,13 @@
     .triangle {
         position: absolute;
         animation: pulse 750ms ease-in infinite;
-        border-top: 27px solid $black;
+        border-top: 27px solid $pink;
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
         border-bottom: 0px;
         &.invert {
             border-top: 0px;
-            border-bottom: 27px solid $black;
+            border-bottom: 27px solid $pink;
             border-left: 15px solid transparent;
             border-right: 15px solid transparent;
         }
