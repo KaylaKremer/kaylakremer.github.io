@@ -19,6 +19,10 @@ const Button = ({
         onClick={onClick}
         aria-label={ariaLabel}
     >
+        <div className="border" />
+        <div className="border" />
+        <div className="border" />
+        <div className="border" />
         {children}
     </button>
 );
