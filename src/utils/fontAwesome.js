@@ -1,5 +1,9 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faWindowClose, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+    faWindowClose,
+    faEnvelope,
+    faSquare
+} from '@fortawesome/free-solid-svg-icons';
 import {
     faLinkedinIn,
     faGithub,
@@ -10,6 +14,7 @@ import {
 library.add(
     faWindowClose,
     faEnvelope,
+    faSquare,
     faLinkedinIn,
     faGithub,
     faTwitter,

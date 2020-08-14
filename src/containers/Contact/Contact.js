@@ -30,7 +30,7 @@ const Contact = ({ modal, loading, success, error, showModal }) => {
         <div className={styles.contact}>
             <h1>Contact</h1>
             {modal && <Modal>{modalContent}</Modal>}
-            <Button type="button" onClick={showModal}>
+            <Button type="button" color="white" onClick={showModal}>
                 Open Modal
             </Button>
         </div>

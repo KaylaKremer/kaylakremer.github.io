@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './textarea.module.scss';
 
-const TextArea = ({ name, id, classNames, cols, rows, ...props }) => (
+const TextArea = ({ name, id, className, cols, rows, ...props }) => (
     <textarea
         name={name}
         id={id}
-        className={`${styles.textarea} ${classNames.map(
-            className => styles[`${className}`]
-        )}`}
+        className={`${className} cursor-form`}
         rows={rows}
         cols={cols}
+        placeholder=" "
         {...props}
     />
 );
@@ -19,7 +17,7 @@ TextArea.propTypes = {
     name: PropTypes.string,
     id: PropTypes.string,
     type: PropTypes.string,
-    classNames: PropTypes.arrayOf(PropTypes.string),
+    className: PropTypes.string,
     rows: PropTypes.number,
     cols: PropTypes.number
 };

@@ -27,7 +27,7 @@ const ContactForm = ({ sendForm }) => (
         })}
         onSubmit={values => sendForm(values)}
     >
-        {({ errors, touched, getFieldProps }) => (
+        {({ errors, touched, getFieldProps, resetForm }) => (
             <Form className={styles['contact-form']}>
                 <Field
                     error={errors.name}
@@ -64,10 +64,14 @@ const ContactForm = ({ sendForm }) => (
                     type="textarea"
                     {...getFieldProps('message')}
                 />
-
-                <Button className={styles.submit} type="submit">
-                    Send Email
-                </Button>
+                <div className={styles.buttons}>
+                    <Button type="reset" color="black" onClick={resetForm}>
+                        Reset
+                    </Button>
+                    <Button type="submit" color="black">
+                        Send Email
+                    </Button>
+                </div>
             </Form>
         )}
     </Formik>

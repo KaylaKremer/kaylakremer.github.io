@@ -30,7 +30,10 @@ const Modal = ({ hideModal, children }) => {
                     onClick={close}
                     ariaLabel="close"
                 >
-                    <Icon icon="window-close" size="2x" />
+                    <div className="fa-layers fa-fw cursor-close">
+                        <Icon icon="square" size="2x" color="white" />
+                        <Icon icon="window-close" size="2x" />
+                    </div>
                 </Button>
                 <div className={styles.content}>{children}</div>
             </div>

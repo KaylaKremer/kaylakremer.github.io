@@ -1,0 +1,141 @@
+@import 'styles';
+@include gradient;
+
+.field {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+    position: relative;
+    margin: 1.25rem;
+
+    .input,
+    .textarea {
+        border-bottom: 3px solid $pink;
+        border-left: 3px solid $pink;
+        background-color: transparent;
+        color: $white;
+        padding: 0.25rem;
+        flex: 1 0 100%;
+        height: auto;
+        cursor: none;
+        outline: none;
+        transition: all 0.3s ease;
+        &:focus ~ .label-container .label,
+        &:not(:placeholder-shown) ~ .label-container .label {
+            top: -1.25rem;
+            left: 0.25rem;
+            transform: scale(0.75);
+        }
+        &:not(:placeholder-shown) ~ .label-container .label {
+            color: $blue;
+        }
+        &:not(:placeholder-shown) {
+            border-color: $blue;
+        }
+        &:not(:focus):placeholder-shown ~ .label-container .label {
+            top: 0.25rem;
+            left: 0.5rem;
+            transform: scale(1);
+        }
+    }
+
+    .label-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        .label {
+            color: $pink;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease;
+            cursor: none;
+        }
+        .tooltip-container {
+            position: absolute;
+            top: 2rem;
+            left: 0;
+
+            .tooltip {
+                position: relative;
+                &::before,
+                &::after {
+                    position: absolute;
+                    pointer-events: none;
+                    cursor: none;
+                }
+                &::before {
+                    z-index: 1000;
+                    border: 6px solid transparent;
+                    background: transparent;
+                    content: '';
+                }
+                &::after {
+                    z-index: 1001;
+                    padding: 5px;
+                    background: $gradient;
+                    background-size: 400% 400%;
+                    animation: gradient 2s infinite;
+                    color: $white;
+                    content: attr(tooltip);
+                    font-size: 14px;
+                    line-height: 1.2;
+                    border-radius: 3px;
+                    text-align: center;
+                }
+            }
+
+            .left {
+                &::before,
+                &::after {
+                    right: 100%;
+                    bottom: 50%;
+                    left: auto;
+                }
+                &::before {
+                    margin-right: 10px;
+                    margin-bottom: 12px;
+                    margin-top: 3px;
+                    background: linear-gradient(90deg, $black, $black),
+                        $gradient;
+                    background-clip: padding-box, border-box;
+                    background-origin: padding-box, border-box;
+                    transform: rotate(45deg);
+                    background-size: 400% 400%;
+                    animation: gradient 2s infinite;
+                }
+            }
+
+            .right {
+                &::before,
+                &::after {
+                    bottom: 50%;
+                    left: 100%;
+                }
+                &::before {
+                    margin-bottom: 9px;
+                    margin-left: -3px;
+                    background: linear-gradient(90deg, $black, $black),
+                        $gradient;
+                    background-clip: padding-box, border-box;
+                    background-origin: padding-box, border-box;
+                    transform: rotate(45deg);
+                    background-size: 400% 400%;
+                    animation: gradient 2s infinite;
+                }
+            }
+
+            .left,
+            .right {
+                &::before {
+                    top: -25px;
+                }
+                &::after {
+                    margin-right: 15px;
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
+}

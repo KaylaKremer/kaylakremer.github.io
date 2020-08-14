@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './input.module.scss';
+import 'components/Field/field.scss';
 
-const Input = ({ name, id, type, classNames, ...props }) => (
+const Input = ({ name, id, type, className, ...props }) => (
     <input
         name={name}
         id={id}
         type={type}
-        className={`${styles.input} ${classNames.map(
-            className => styles[`${className}`]
-        )}`}
+        className={`${className} cursor-form`}
+        placeholder=" "
         {...props}
     />
 );
@@ -18,7 +17,7 @@ Input.propTypes = {
     name: PropTypes.string,
     id: PropTypes.string,
     type: PropTypes.string,
-    classNames: PropTypes.arrayOf(PropTypes.string)
+    className: PropTypes.string
 };
 
 export default Input;

@@ -63,7 +63,8 @@ export default class CustomCursor {
         });
     }
 
-    handleMouseEnter = () => {
+    handleMouseEnter = e => {
+        e.preventDefault();
         gsap.to(this.cursor.outerTriangle, {
             scale: 1.5,
             ease: 'elastic.out(2.5, 0.1)',
@@ -83,33 +84,52 @@ export default class CustomCursor {
         });
     };
 
-    handleMouseLeave = () => {
+    handleMouseLeave = e => {
+        e.preventDefault();
         gsap.to(this.cursor.outerTriangle, {
             scale: 1,
             opacity: 1,
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
         });
         gsap.to(this.cursor.innerTriangle, {
             scale: 1,
             borderColor: 'transparent transparent #d680ff transparent',
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
         });
     };
 
-    handleMouseClick = () => {
+    handleMouseClick = e => {
+        e.preventDefault();
         gsap.to(this.cursor.outerTriangle, {
             scale: 1,
             opacity: 1,
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
         });
         gsap.to(this.cursor.innerTriangle, {
             scale: 1,
             borderColor: 'transparent transparent #d680ff transparent',
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
+        });
+    };
+
+    handleFocus = e => {
+        e.preventDefault();
+        function onComplete() {
+            this.pause(0);
+        }
+        gsap.to(this.cursor.outerTriangle, {
+            rotate: 360,
+            duration: 0.3,
+            onComplete
+        });
+        gsap.to(this.cursor.innerTriangle, {
+            rotate: -360,
+            duration: 0.3,
+            onComplete
         });
     };
 
@@ -125,14 +145,26 @@ export default class CustomCursor {
             item.addEventListener('mouseleave', this.handleMouseLeave);
         });
 
-        const buttonItems = document.querySelectorAll(['.cursor-button']);
+        const buttonItems = document.querySelectorAll('.cursor-button');
         buttonItems.forEach(item => {
             item.removeEventListener('mouseenter', this.handleMouseEnter);
             item.removeEventListener('mouseleave', this.handleMouseLeave);
-            item.removeEventListener('click', this.handleMouseClick);
+            // item.removeEventListener('click', this.handleMouseClick);
             item.addEventListener('mouseenter', this.handleMouseEnter);
             item.addEventListener('mouseleave', this.handleMouseLeave);
+            // item.addEventListener('click', this.handleMouseClick);
+        });
+
+        const closeItems = document.querySelectorAll('.cursor-close');
+        closeItems.forEach(item => {
+            item.removeEventListener('click', this.handleMouseClick);
             item.addEventListener('click', this.handleMouseClick);
+        });
+
+        const formItems = document.querySelectorAll('.cursor-form');
+        formItems.forEach(item => {
+            item.removeEventListener('focus', this.handleFocus);
+            item.addEventListener('focus', this.handleFocus);
         });
     }
 }
