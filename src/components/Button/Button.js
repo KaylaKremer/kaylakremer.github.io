@@ -16,6 +16,7 @@ class Button extends Component {
     render() {
         const {
             type,
+            color,
             icon = null,
             onClick = null,
             ariaLabel = null,
@@ -27,8 +28,9 @@ class Button extends Component {
                 type={type}
                 className={`
                     ${icon ? styles[`${icon}`] : styles.button} 
-                    ${type === 'submit' ? styles.submit : null} 
-                    ${type === 'reset' ? styles.reset : null} 
+                    ${styles[`button-${color}`]}
+                    ${type === 'submit' ? styles.submit : ''} 
+                    ${type === 'reset' ? styles.reset : ''} 
                     cursor-button
                 `}
                 onClick={onClick}
@@ -66,6 +68,7 @@ class Button extends Component {
 
 Button.prototypes = {
     type: PropTypes.string,
+    color: PropTypes.string,
     onClick: PropTypes.func,
     style: PropTypes.string,
     ariaLabel: PropTypes.string,

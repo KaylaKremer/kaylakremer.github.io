@@ -65,10 +65,12 @@ const ContactForm = ({ sendForm }) => (
                     {...getFieldProps('message')}
                 />
                 <div className={styles.buttons}>
-                    <Button type="reset" onClick={resetForm}>
+                    <Button type="reset" color="black" onClick={resetForm}>
                         Reset
                     </Button>
-                    <Button type="submit">Send Email</Button>
+                    <Button type="submit" color="black">
+                        Send Email
+                    </Button>
                 </div>
             </Form>
         )}

@@ -124,12 +124,22 @@
         margin: 0;
     }
 
-    &:hover {
-        background-color: $black;
-    }
-
     &:active {
         background-color: $blue;
+    }
+
+    &.button-black {
+        &:hover {
+            background-color: $black;
+            color: $white;
+        }
+    }
+
+    &.button-white {
+        &:hover {
+            background-color: $white;
+            color: $black;
+        }
     }
 }
 
