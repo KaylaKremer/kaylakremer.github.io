@@ -167,7 +167,14 @@
     z-index: 300;
     color: $pink;
     background-color: transparent;
+    transition: all 0.5s;
     &:hover {
         color: $black;
+    }
+    &:hover:first-child {
+        path {
+            stroke: $black;
+            stroke-width: 10;
+        }
     }
 }
