@@ -90,13 +90,13 @@ export default class CustomCursor {
             scale: 1,
             opacity: 1,
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
         });
         gsap.to(this.cursor.innerTriangle, {
             scale: 1,
             borderColor: 'transparent transparent #d680ff transparent',
             ease: 'power1.in',
-            duration: 0.3
+            duration: 0.2
         });
     };
 
@@ -149,9 +149,15 @@ export default class CustomCursor {
         buttonItems.forEach(item => {
             item.removeEventListener('mouseenter', this.handleMouseEnter);
             item.removeEventListener('mouseleave', this.handleMouseLeave);
-            item.removeEventListener('click', this.handleMouseClick);
+            // item.removeEventListener('click', this.handleMouseClick);
             item.addEventListener('mouseenter', this.handleMouseEnter);
             item.addEventListener('mouseleave', this.handleMouseLeave);
+            // item.addEventListener('click', this.handleMouseClick);
+        });
+
+        const closeItems = document.querySelectorAll('.cursor-close');
+        closeItems.forEach(item => {
+            item.removeEventListener('click', this.handleMouseClick);
             item.addEventListener('click', this.handleMouseClick);
         });
 
