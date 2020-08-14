@@ -54,31 +54,30 @@
     align-items: center;
     position: relative;
     border-radius: 5px;
-    div {
+    .border {
         position: absolute;
-        &:nth-child(1) {
+
+        &.border1 {
             height: 3px;
             width: 10rem;
             top: 0px;
             left: -10rem;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0), $pink);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), $blue);
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
-            animation: border1 2s linear infinite;
-            animation-delay: 1s;
         }
-        &:nth-child(2) {
+
+        &.border2 {
             height: 3.25rem;
             width: 3px;
             top: -3.25rem;
             right: 0px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $pink);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $blue);
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
-            animation: border2 2s linear infinite;
-            animation-delay: 2s;
         }
-        &:nth-child(3) {
+
+        &.border3 {
             height: 3px;
             width: 10rem;
             right: -10rem;
@@ -86,10 +85,9 @@
             background: linear-gradient(to left, rgba(0, 0, 0, 0), $blue);
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
-            animation: border3 2s linear infinite;
-            animation-delay: 1s;
         }
-        &:nth-child(4) {
+
+        &.border4 {
             height: 3.25rem;
             width: 3px;
             bottom: -3.25rem;
@@ -97,26 +95,41 @@
             background: linear-gradient(to top, rgba(0, 0, 0, 0), $blue);
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
+        }
+
+        &.pause {
+            animation: none;
+        }
+
+        &.play1 {
+            animation: border1 2s linear infinite;
+        }
+
+        &.play2 {
+            animation: border2 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        &.play3 {
+            animation: border3 2s linear infinite;
+        }
+
+        &.play4 {
             animation: border4 2s linear infinite;
-            animation-delay: 2s;
+            animation-delay: 1s;
         }
     }
-    div {
-        &:hover:nth-child(1) {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0), $pink);
-        }
-    }
+
     &.no-margin {
         margin: 0;
     }
+
     &:hover {
         background-color: $black;
     }
+
     &:active {
         background-color: $blue;
-    }
-    &:active:nth-child(1) {
-        background: none;
     }
 }
 

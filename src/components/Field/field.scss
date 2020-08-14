@@ -10,8 +10,8 @@
 
     .input,
     .textarea {
-        border-bottom: 3px solid $blue;
-        border-left: 3px solid $blue;
+        border-bottom: 3px solid $pink;
+        border-left: 3px solid $pink;
         background-color: transparent;
         color: $white;
         padding: 0.25rem;
@@ -27,10 +27,10 @@
             transform: scale(0.75);
         }
         &:not(:placeholder-shown) ~ .label-container .label {
-            color: $pink;
+            color: $blue;
         }
         &:not(:placeholder-shown) {
-            border-color: $pink;
+            border-color: $blue;
         }
         &:not(:focus):placeholder-shown ~ .label-container .label {
             top: 0.25rem;
@@ -45,7 +45,7 @@
         align-items: center;
 
         .label {
-            color: $blue;
+            color: $pink;
             position: absolute;
             top: 0;
             left: 0;
