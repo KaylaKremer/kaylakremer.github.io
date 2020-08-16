@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Backdrop from 'components/Backdrop/Backdrop';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Fade from 'components/Fade/Fade';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './modal.module.scss';
