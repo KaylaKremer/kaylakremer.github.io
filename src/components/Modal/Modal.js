@@ -22,24 +22,22 @@ const Modal = ({ hideModal, children }) => {
 
     return (
         <div>
-            <Fade>
-                {noScroll()}
-                <Backdrop />
-                <div className={styles.modal}>
-                    <Button
-                        type="button"
-                        icon="close"
-                        onClick={close}
-                        ariaLabel="close"
-                    >
-                        <div className="fa-layers fa-fw cursor-close">
-                            <Icon icon="square" size="2x" color="white" />
-                            <Icon icon="window-close" size="2x" />
-                        </div>
-                    </Button>
-                    <div className={styles.content}>{children}</div>
-                </div>
-            </Fade>
+            {noScroll()}
+            <Backdrop />
+            <div className={styles.modal}>
+                <Button
+                    type="button"
+                    icon="close"
+                    onClick={close}
+                    ariaLabel="close"
+                >
+                    <div className="fa-layers fa-fw cursor-close">
+                        <Icon icon="square" size="2x" color="white" />
+                        <Icon icon="window-close" size="2x" />
+                    </div>
+                </Button>
+                <div className={styles.content}>{children}</div>
+            </div>
         </div>
     );
 };
