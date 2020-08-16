@@ -33,8 +33,8 @@ class Button extends Component {
                     ${type === 'reset' ? styles.reset : ''} 
                     cursor-button
                 `}
-                onClick={onClick}
                 aria-label={ariaLabel}
+                onClick={onClick}
                 onMouseEnter={this.toggleHover}
                 onMouseLeave={this.toggleHover}
                 onFocus={this.play}

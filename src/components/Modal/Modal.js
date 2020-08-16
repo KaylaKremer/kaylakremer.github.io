@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Backdrop from 'components/Backdrop/Backdrop';
 import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
+import Fade from 'components/Fade/Fade';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './modal.module.scss';
@@ -21,22 +22,24 @@ const Modal = ({ hideModal, children }) => {
 
     return (
         <div>
-            {noScroll()}
-            <Backdrop />
-            <div className={styles.modal}>
-                <Button
-                    type="button"
-                    icon="close"
-                    onClick={close}
-                    ariaLabel="close"
-                >
-                    <div className="fa-layers fa-fw cursor-close">
-                        <Icon icon="square" size="2x" color="white" />
-                        <Icon icon="window-close" size="2x" />
-                    </div>
-                </Button>
-                <div className={styles.content}>{children}</div>
-            </div>
+            <Fade>
+                {noScroll()}
+                <Backdrop />
+                <div className={styles.modal}>
+                    <Button
+                        type="button"
+                        icon="close"
+                        onClick={close}
+                        ariaLabel="close"
+                    >
+                        <div className="fa-layers fa-fw cursor-close">
+                            <Icon icon="square" size="2x" color="white" />
+                            <Icon icon="window-close" size="2x" />
+                        </div>
+                    </Button>
+                    <div className={styles.content}>{children}</div>
+                </div>
+            </Fade>
         </div>
     );
 };

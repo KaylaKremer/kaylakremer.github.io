@@ -40,6 +40,7 @@
 .button {
     outline: none;
     border-style: none;
+    border-radius: 5px;
     overflow: hidden;
     transition: all 0.5s;
     color: $white;
@@ -53,7 +54,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    border-radius: 5px;
     .border {
         position: absolute;
 
@@ -130,14 +130,14 @@
 
     &.button-black {
         &:hover {
-            background-color: $black;
+            background-color: transparent;
             color: $white;
         }
     }
 
     &.button-white {
         &:hover {
-            background-color: $white;
+            background-color: transparent;
             color: $black;
         }
     }
