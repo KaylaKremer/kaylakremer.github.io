@@ -11,21 +11,21 @@ import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact.module.scss';
 
-const Contact = ({ modal, loading, success, error, showModal }) => {
-    let modalContent;
+const Contact = ({ loading, success, error, showModal }) => {
+    // let modalContent;
 
-    if (loading) {
-        modalContent = <Loader />;
-    } else if (success) {
-        modalContent = <Success />;
-    } else if (error) {
-        modalContent = <Error />;
-    } else {
-        modalContent = <ContactForm />;
-    }
+    // if (loading) {
+    //     modalContent = <Loader />;
+    // } else if (success) {
+    //     modalContent = <Success />;
+    // } else if (error) {
+    //     modalContent = <Error />;
+    // } else {
+    //     modalContent = <ContactForm />;
+    // }
 
     // For testing with just one component:
-    // modalContent = <Error />;
+    const modalContent = <Loader />;
 
     return (
         <div className={styles.contact}>
@@ -41,7 +41,6 @@ const Contact = ({ modal, loading, success, error, showModal }) => {
 };
 
 const mapStateToProps = state => ({
-    modal: state.contact.modal,
     loading: state.contact.loading,
     success: state.contact.success,
     error: state.contact.error
@@ -52,7 +51,6 @@ const mapDispatchToProps = {
 };
 
 Contact.propTypes = {
-    modal: PropTypes.bool,
     loading: PropTypes.bool,
     success: PropTypes.string,
     error: PropTypes.string,

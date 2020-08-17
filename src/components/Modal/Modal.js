@@ -10,9 +10,7 @@ import styles from './modal.module.scss';
 
 const Modal = ({ hideModal, children }) => {
     const noScroll = () => {
-        document
-            .querySelector('html')
-            .classList.toggle(`${styles['no-scroll']}`);
+        document.body.classList.toggle(`${styles['no-scroll']}`);
     };
 
     const close = () => {
