@@ -7,5 +7,7 @@
     width: 100%;
     height: auto;
     margin: 50% 0;
+    color: $white;
+    font-size: 2rem;
     @include font-family($megrim);
 }

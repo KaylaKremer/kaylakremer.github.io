@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Fade from 'components/Fade/Fade';
 import Modal from 'components/Modal/Modal';
-import Button from 'components/Button/Button';
 import Loader from 'components/Loader/Loader';
 import Success from 'components/Success/Success';
 import Error from 'components/Error/Error';
 import ContactForm from 'components/ContactForm/ContactForm';
-import Fade from 'components/Fade/Fade';
+import Button from 'components/Button/Button';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './contact.module.scss';
@@ -25,7 +25,7 @@ const Contact = ({ loading, success, error, showModal }) => {
     // }
 
     // For testing with just one component:
-    const modalContent = <Loader />;
+    const modalContent = <Success />;
 
     return (
         <div className={styles.contact}>
