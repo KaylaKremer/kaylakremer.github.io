@@ -3,27 +3,11 @@ import { connect } from 'react-redux';
 import Icon from 'components/Icon/Icon';
 import Fade from 'components/Fade/Fade';
 import Modal from 'components/Modal/Modal';
-import Loader from 'components/Loader/Loader';
-import Success from 'components/Success/Success';
-import Error from 'components/Error/Error';
-import ContactForm from 'components/ContactForm/ContactForm';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import styles from './footer.module.scss';
 
-const Footer = ({ loading, success, error, showModal }) => {
-    let modalContent;
-
-    if (loading) {
-        modalContent = <Loader />;
-    } else if (success) {
-        modalContent = <Success />;
-    } else if (error) {
-        modalContent = <Error />;
-    } else {
-        modalContent = <ContactForm />;
-    }
-
+const Footer = ({ showModal }) => {
     const socialMediaIcons = () => {
         const socialMedia = {
             github: 'https://github.com/KaylaKremer',
@@ -76,7 +60,7 @@ const Footer = ({ loading, success, error, showModal }) => {
     return (
         <footer className={styles.footer}>
             <Fade component="modal">
-                <Modal>{modalContent}</Modal>
+                <Modal />
             </Fade>
             <div className={`${styles['social-media']} cursor-footer`}>
                 {socialMediaIcons()}
@@ -88,21 +72,12 @@ const Footer = ({ loading, success, error, showModal }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    loading: state.contact.loading,
-    success: state.contact.success,
-    error: state.contact.error
-});
-
 const mapDispatchToProps = {
     showModal: actions.showModal
 };
 
 Footer.propTypes = {
-    loading: PropTypes.bool,
-    success: PropTypes.string,
-    error: PropTypes.string,
     showModal: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(null, mapDispatchToProps)(Footer);
