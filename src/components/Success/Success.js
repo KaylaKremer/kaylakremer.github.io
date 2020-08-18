@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Icon from 'components/Icon/Icon';
 import PropTypes from 'prop-types';
 import styles from './success.module.scss';
 
 const Success = ({ success }) => (
-    <div className={styles.success}>{success}</div>
+    <div className={styles.success}>
+        <Icon icon="paper-plane" size="2x" />
+        {success}
+    </div>
 );
 
 const mapStateToProps = state => ({

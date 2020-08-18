@@ -1,69 +1,5 @@
 @import 'styles';
 
-.loader {
-    height: 81px;
-    width: 90px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    .triangle {
-        position: absolute;
-        animation: pulse 750ms ease-in infinite;
-        border-top: 27px solid $pink;
-        border-left: 15px solid transparent;
-        border-right: 15px solid transparent;
-        border-bottom: 0px;
-        &.invert {
-            border-top: 0px;
-            border-bottom: 27px solid $pink;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-        }
-        &:nth-child(1) {
-            left: 30px;
-        }
-        &:nth-child(2) {
-            left: 15px;
-            top: 27px;
-            animation-delay: -125ms;
-        }
-        &:nth-child(3) {
-            left: 30px;
-            top: 27px;
-        }
-        &:nth-child(4) {
-            left: 45px;
-            top: 27px;
-            animation-delay: -625ms;
-        }
-        &:nth-child(5) {
-            top: 54px;
-            animation-delay: -250ms;
-        }
-        &:nth-child(6) {
-            top: 54px;
-            left: 15px;
-            animation-delay: -250ms;
-        }
-        &:nth-child(7) {
-            top: 54px;
-            left: 30px;
-            animation-delay: -375ms;
-        }
-        &:nth-child(8) {
-            top: 54px;
-            left: 45px;
-            animation-delay: -500ms;
-        }
-        &:nth-child(9) {
-            top: 54px;
-            left: 60px;
-            animation-delay: -500ms;
-        }
-    }
-}
-
 @keyframes pulse {
     0% {
         opacity: 1;
@@ -73,5 +9,87 @@
     }
     100% {
         opacity: 0;
+    }
+}
+
+.loader {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    .triangle-wrapper {
+        height: 81px;
+        width: 90px;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        .triangle {
+            position: absolute;
+            animation: pulse 750ms ease-in infinite;
+            border-top: 27px solid $pink;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 0px;
+            &.invert {
+                border-top: 0px;
+                border-bottom: 27px solid $pink;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+            }
+            &:nth-child(1) {
+                left: 30px;
+            }
+            &:nth-child(2) {
+                left: 15px;
+                top: 27px;
+                animation-delay: -125ms;
+            }
+            &:nth-child(3) {
+                left: 30px;
+                top: 27px;
+            }
+            &:nth-child(4) {
+                left: 45px;
+                top: 27px;
+                animation-delay: -625ms;
+            }
+            &:nth-child(5) {
+                top: 54px;
+                animation-delay: -250ms;
+            }
+            &:nth-child(6) {
+                top: 54px;
+                left: 15px;
+                animation-delay: -250ms;
+            }
+            &:nth-child(7) {
+                top: 54px;
+                left: 30px;
+                animation-delay: -375ms;
+            }
+            &:nth-child(8) {
+                top: 54px;
+                left: 45px;
+                animation-delay: -500ms;
+            }
+            &:nth-child(9) {
+                top: 54px;
+                left: 60px;
+                animation-delay: -500ms;
+            }
+        }
+    }
+    .text {
+        display: flex;
+        flex-flow: row nowrap;
+        position: absolute;
+        left: 50%;
+        top: 52%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        font-size: 1.5rem;
+        @include font-family($megrim);
     }
 }
